@@ -1,0 +1,1 @@
+Deixa o projeto no C: para usar os caminhos padrões do programa, ou escolher a opçao de altera-los durante a execução.
