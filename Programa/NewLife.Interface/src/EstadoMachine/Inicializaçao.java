@@ -5,6 +5,9 @@
  */
 package EstadoMachine;
 
+import Business.DataConfig.Config;
+import Comuns.basis.TipoRepositorio;
+
 /**
  *
  * @author joao-
@@ -16,7 +19,7 @@ public class Inicializaçao {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Config.getInstance().setDatabase(TipoRepositorio.TEXTO);
+        Config.getInstance().setDatabase(TipoRepositorio.MYSQL);
         estadoConsole = EnumEstado.Inicio.getEstadoMaquina();
         Boolean saida = false;
         while (!saida){
