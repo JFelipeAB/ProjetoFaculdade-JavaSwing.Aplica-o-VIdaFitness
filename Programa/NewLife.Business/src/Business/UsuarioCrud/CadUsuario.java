@@ -5,7 +5,12 @@
  */
 package Business.UsuarioCrud;
 
+import Business.DataConfig.EscolheRepositorio;
 import Business.DataConfig.FabricaRepositorio;
+import Comuns.basis.EntidadesDisponiveis;
+import Comuns.vos.Usuario;
+import DAO.basis.Repositorio;
+import java.sql.SQLException;
 
 /**
  *
@@ -16,7 +21,7 @@ public class CadUsuario {
         boolean retorno = true;
         
         try {
-            Repositorio repositorio = FabricaRepositorio.Fabrica();
+            Repositorio repositorio = EscolheRepositorio.Fabrica();
             repositorio.inserir(user, EntidadesDisponiveis.USUARIO);
         } catch (SQLException ex) {
             retorno = false;

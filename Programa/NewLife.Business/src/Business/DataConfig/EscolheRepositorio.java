@@ -5,14 +5,18 @@
  */
 package Business.DataConfig;
 
+import Comuns.basis.TipoRepositorio;
+import DAO.basis.Repositorio;
+import DAO.repositorioSQL.RepositorioSQL;
+
 /**
  *
  * @author joao-
  */
-public class FabricaRepositorio {
+public class EscolheRepositorio {
     public static Repositorio Fabrica() {
         if (Config.getInstance().getTipoRepositorio() == TipoRepositorio.MYSQL)
-            return new RepositorioMySQL();
+            return new RepositorioSQL();
         else 
             return null;
     }

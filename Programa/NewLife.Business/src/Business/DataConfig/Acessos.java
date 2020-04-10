@@ -6,20 +6,21 @@
 package Business.DataConfig;
 import Comuns.basis.EntidadesDisponiveis;
 import Comuns.vos.Usuario;
+import DAO.basis.Repositorio;
 import java.sql.SQLException;
 
 /**
  *
  * @author joao-
  */
-public class Acesso {
+public class Acessos {
     private boolean validaSenha(String senhaRepositorio, String senhaDigitada){
         return (senhaRepositorio.equals(senhaDigitada)); 
     }
 
     public boolean validaUsuario(Usuario user) throws SQLException {
         boolean retorno = false;
-        Repositorio repositorio = FabricaRepositorio.Fabrica();        
+        Repositorio repositorio = EscolheRepositorio.Fabrica();        
         Usuario usuario = (Usuario)repositorio.consultar(user.getUsuario(), EntidadesDisponiveis.USUARIO);
 
         if (usuario != null) {

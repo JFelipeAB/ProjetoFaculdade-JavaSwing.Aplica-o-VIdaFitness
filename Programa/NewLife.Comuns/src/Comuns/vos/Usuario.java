@@ -14,11 +14,12 @@ import Comuns.basis.Entidade;
 public class Usuario extends Entidade{
 
     private String nome;
-    private String username;
+    private String usuario;
     private String senha;
     private double peso;
     private double altura;
     
+        
     /**
      * @return the nome
      */
@@ -36,15 +37,15 @@ public class Usuario extends Entidade{
     /**
      * @return the username
      */
-    public String getUsername() {
-        return username;
+    public String getUsuario() {
+        return usuario;
     }
 
     /**
-     * @param username the username to set
+     * @param usuario the username to set
      */
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
 
     /**
