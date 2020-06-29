@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package EstadoMachine;
-
+import Business.DataConfig.Acessos;
 /**
  *
  * @author ighor
@@ -114,7 +114,8 @@ public class TelaLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-        if(validaUsuario) 
+        Acessos 
+        if(Acessos.) 
         
         new TelaMenu().setVisible(true);
          this.hide();// TODO add your handling code here:

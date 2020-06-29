@@ -13,7 +13,7 @@ import java.sql.SQLException;
  *
  * @author joao-
  */
-public class Acessos {
+ public class Acessos {
     private boolean validaSenha(String senhaRepositorio, String senhaDigitada){
         return (senhaRepositorio.equals(senhaDigitada)); 
     }

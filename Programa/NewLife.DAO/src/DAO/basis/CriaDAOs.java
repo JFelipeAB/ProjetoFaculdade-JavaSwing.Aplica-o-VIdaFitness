@@ -8,7 +8,7 @@ package DAO.basis;
 import Comuns.basis.EnumAbasDisponiveis;
 import static Comuns.basis.EnumAbasDisponiveis.USUARIO;
 import Comuns.basis.TipoRepositorio;
-import DAO.acesso.UsuarioDAO;
+import DAO.usuarioSQL.UsuarioDAO;
 
 /**
  *

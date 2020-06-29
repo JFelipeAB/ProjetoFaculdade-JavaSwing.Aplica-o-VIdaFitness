@@ -17,10 +17,11 @@ import java.sql.SQLException;
  * @author joao-
  */
 public class CadUsuario {
-    public boolean InsereUsuario(Usuario user){
+    public boolean InsereUsuario(String user){
         boolean retorno = true;
         
         try {
+            
             Repositorio repositorio = EscolheRepositorio.Fabrica();
             repositorio.inserir(user, EnumAbasDisponiveis.USUARIO);
         } catch (SQLException ex) {

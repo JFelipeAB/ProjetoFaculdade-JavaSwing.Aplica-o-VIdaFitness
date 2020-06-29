@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package DAO.acesso;
+package DAO.usuarioSQL;
 
 import Comuns.basis.Entidade;
 import Comuns.vos.Usuario;

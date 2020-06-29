@@ -97,5 +97,103 @@ public class Usuario extends Entidade{
     public void setAltura(double altura) {
         this.altura = altura;
     }
+
+    /**
+     * @return the gordura
+     */
+    public double getGordura() {
+        return gordura;
+    }
+
+    /**
+     * @param gordura the gordura to set
+     */
+    public void setGordura(double gordura) {
+        this.gordura = gordura;
+    }
+
+    /**
+     * @return the endereco
+     */
+    public String getEndereco() {
+        return endereco;
+    }
+
+    /**
+     * @param endereco the endereco to set
+     */
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    /**
+     * @return the cidade
+     */
+    public String getCidade() {
+        return cidade;
+    }
+
+    /**
+     * @param cidade the cidade to set
+     */
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    /**
+     * @return the estado
+     */
+    public String getEstado() {
+        return estado;
+    }
+
+    /**
+     * @param estado the estado to set
+     */
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    /**
+     * @return the imc
+     */
+    public double getImc() {
+        return imc;
+    }
+
+    /**
+     * @param imc the imc to set
+     */
+    public void setImc(double imc) {
+        this.imc = imc;
+    }
+
+    /**
+     * @return the gorduraDesejada
+     */
+    public double getGorduraDesejada() {
+        return gorduraDesejada;
+    }
+
+    /**
+     * @param gorduraDesejada the gorduraDesejada to set
+     */
+    public void setGorduraDesejada(double gorduraDesejada) {
+        this.gorduraDesejada = gorduraDesejada;
+    }
+
+    /**
+     * @return the pesoDesejada
+     */
+    public double getPesoDesejada() {
+        return pesoDesejada;
+    }
+
+    /**
+     * @param pesoDesejada the pesoDesejada to set
+     */
+    public void setPesoDesejada(double pesoDesejada) {
+        this.pesoDesejada = pesoDesejada;
+    }
    
 }
