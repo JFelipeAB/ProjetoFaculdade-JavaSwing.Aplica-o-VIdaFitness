@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package Business.DataConfig;
-import Comuns.basis.EntidadesDisponiveis;
+import Comuns.basis.EnumAbasDisponiveis;
 import Comuns.vos.Usuario;
 import DAO.basis.Repositorio;
 import java.sql.SQLException;
@@ -21,7 +21,7 @@ public class Acessos {
     public boolean validaUsuario(Usuario user) throws SQLException {
         boolean retorno = false;
         Repositorio repositorio = EscolheRepositorio.Fabrica();        
-        Usuario usuario = (Usuario)repositorio.consultar(user.getUsuario(), EntidadesDisponiveis.USUARIO);
+        Usuario usuario = (Usuario)repositorio.consultar(user.getUsuario(), EnumAbasDisponiveis.USUARIO);
 
         if (usuario != null) {
             retorno = validaSenha(usuario.getSenha(), user.getSenha());

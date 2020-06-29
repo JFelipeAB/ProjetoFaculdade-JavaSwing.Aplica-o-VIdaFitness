@@ -7,7 +7,7 @@ package Business.UsuarioCrud;
 
 import Business.DataConfig.EscolheRepositorio;
 import Business.DataConfig.FabricaRepositorio;
-import Comuns.basis.EntidadesDisponiveis;
+import Comuns.basis.EnumAbasDisponiveis;
 import Comuns.vos.Usuario;
 import DAO.basis.Repositorio;
 import java.sql.SQLException;
@@ -22,7 +22,7 @@ public class CadUsuario {
         
         try {
             Repositorio repositorio = EscolheRepositorio.Fabrica();
-            repositorio.inserir(user, EntidadesDisponiveis.USUARIO);
+            repositorio.inserir(user, EnumAbasDisponiveis.USUARIO);
         } catch (SQLException ex) {
             retorno = false;
         }

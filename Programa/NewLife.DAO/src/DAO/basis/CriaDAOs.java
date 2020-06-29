@@ -5,8 +5,8 @@
  */
 package DAO.basis;
 
-import Comuns.basis.EntidadesDisponiveis;
-import static Comuns.basis.EntidadesDisponiveis.USUARIO;
+import Comuns.basis.EnumAbasDisponiveis;
+import static Comuns.basis.EnumAbasDisponiveis.USUARIO;
 import Comuns.basis.TipoRepositorio;
 import DAO.acesso.UsuarioDAO;
 
@@ -15,7 +15,7 @@ import DAO.acesso.UsuarioDAO;
  * @author joao-
  */
 public class CriaDAOs {
-    public static DAO Fabrica(EntidadesDisponiveis enumEntidade, TipoRepositorio repositorio) {
+    public static DAO Fabrica(EnumAbasDisponiveis enumEntidade, TipoRepositorio repositorio) {
         switch (repositorio)
         {
             case MYSQL:
@@ -25,7 +25,7 @@ public class CriaDAOs {
         }
     }
     
-    private static DAO montaDAOMySQL(EntidadesDisponiveis enumEntidade) {
+    private static DAO montaDAOMySQL(EnumAbasDisponiveis enumEntidade) {
         DAO retorno;
 
         switch (enumEntidade)

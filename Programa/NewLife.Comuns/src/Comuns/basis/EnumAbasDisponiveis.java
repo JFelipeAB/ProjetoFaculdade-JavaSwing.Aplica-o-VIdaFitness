@@ -9,17 +9,18 @@ package Comuns.basis;
  *
  * @author joao-
  */
-public enum EntidadesDisponiveis {
+public enum EnumAbasDisponiveis {
     Treino("treino"),
-    
-    USUARIO("usuario");     
- 
+    Alimentacao("Alimentacao"),
+    Sobre("Sobre"),
+    Perfil("Perfil");
+
     private String descricao;
- 
-    EntidadesDisponiveis(String descricao) {
+
+    EnumAbasDisponiveis(String descricao) {
         this.descricao = descricao;
     }
- 
+
     public String getDescricao() {
         return descricao;
     }

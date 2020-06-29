@@ -11,7 +11,7 @@ import Comuns.vos.Usuario;
  * @author joao-
  */
 public class CriaEntidades {
-    public static Entidade CriaEntidade(EntidadesDisponiveis entidade){
+    public static Entidade CriaEntidade(EnumAbasDisponiveis entidade){
         
         Entidade entidadeRetorno;
         

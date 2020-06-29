@@ -18,6 +18,14 @@ public class Usuario extends Entidade{
     private String senha;
     private double peso;
     private double altura;
+    private double gordura;
+    private String endereco;
+    private String cidade;
+    private String estado;
+    private double imc;
+    private double gorduraDesejada;
+    private double pesoDesejada;
+    
     
         
     /**
