@@ -5,6 +5,8 @@
  */
 package EstadoMachine;
 
+import Business.UsuarioCrud.CrudUsuario;
+import Business.UsuarioCrud.NewUsuario;
 import java.awt.Color;
 
 /**
@@ -91,7 +93,6 @@ public class TelaCadastrar extends javax.swing.JFrame {
         setAlwaysOnTop(true);
         setBackground(new java.awt.Color(0, 0, 0));
         setForeground(java.awt.Color.white);
-        setPreferredSize(new java.awt.Dimension(371, 711));
         setResizable(false);
         setSize(new java.awt.Dimension(371, 711));
 
@@ -186,10 +187,9 @@ public class TelaCadastrar extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+/*
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-        Acessos
-        if(Acessos.)
+    
 
         new TelaMenu().setVisible(true);
         this.hide();// TODO add your handling code here:
@@ -198,17 +198,24 @@ public class TelaCadastrar extends javax.swing.JFrame {
     private void btnEntrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrar1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnEntrar1ActionPerformed
-
+*/
     private void btnEntrar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrar2ActionPerformed
-        Acessos
-        if(Acessos.)
-
-        new TelaMenu().setVisible(true);
-        this.hide();// TODO add your handling code here:
+        if(NewUsuario.NovoUser(txtUsuario1.getText(),txtSenha1.getText())) 
+        {
+            new TelaMenu().setVisible(true);
+            CrudUsuario.setUsuarioLogado(txtUsuario1.getText(),txtSenha1.getText());
+            this.hide();
+        }// TODO add your handling code here:
+        else
+        {
+        txtUsuario.setText("Usuario ja existente");
+        txtSenha.setText("");
+        }
     }//GEN-LAST:event_btnEntrar2ActionPerformed
 
     private void btnEntrar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrar3ActionPerformed
-        // TODO add your handling code here:
+       new TelaLogin().setVisible(true);
+        this.hide();
     }//GEN-LAST:event_btnEntrar3ActionPerformed
 
     /**

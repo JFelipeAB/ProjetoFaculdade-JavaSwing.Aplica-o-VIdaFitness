@@ -5,7 +5,7 @@
  */
 package DAO.DAOs;
 
-import DAO.bean.Usuario;
+
 import DAO.connection.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import Comuns.vos.Usuario;
 
 /**
  *
@@ -27,20 +28,23 @@ public class UsuarioDAO {
         PreparedStatement stmt = null;
         
         try {
-            stmt = con.prepareStatement("INSERT INTO USUARIO(nome_usuario,senha,nome,endereco,cidade,estado,idade,peso,altura,qtd_gordura,sexo)" +
+            stmt = con.prepareStatement("INSERT INTO USUARIO(nome_usuario,senha,nome,endereco,cidade,estado,idade,peso,altura,qtd_gordura,)" +
                                         "VALUES (?,?,?,?,?,?,?,?,?,?,?)");
-            stmt.setString(1, u.getNome_usuario());
+            stmt.setString(1, u.getUsuario());
             stmt.setString(2, u.getSenha());
             stmt.setString(3, u.getNome());
             stmt.setString(4, u.getEndereco());
             stmt.setString(5, u.getCidade());
             stmt.setString(6, u.getEstado());
             stmt.setInt(7, u.getIdade());
-            stmt.setInt(8, u.getPeso());
+            stmt.setDouble(8, u.getPeso());
             stmt.setDouble(9, u.getAltura());
-            stmt.setInt(10, u.getQtd_gorduta());
-            stmt.setString(11, u.getSexo());
-            
+            stmt.setDouble(10, u.getGordura());
+            stmt.setDouble(11, u.getGorduraDesejada());
+            stmt.setString(12, u.getLvlTreino());
+            stmt.setString(13, u.getMeta());
+            stmt.setDouble(14, u.getPesoDesejada());
+            stmt.setDouble(15, u.getImc());
             stmt.executeUpdate();
             
             JOptionPane.showMessageDialog(null, "Salvo com sucesso!");

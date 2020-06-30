@@ -13,18 +13,24 @@ import Comuns.basis.Entidade;
  */
 public class Usuario extends Entidade{
 
-    private String nome;
+    
     private String usuario;
     private String senha;
+    private String nome;
+    private String endereco;
+     private String cidade;
+     private String estado;
+     private int idade;
     private double peso;
     private double altura;
     private double gordura;
-    private String endereco;
-    private String cidade;
-    private String estado;
+    
+    private String meta;
+    private String lvlTreino;
     private double imc;
     private double gorduraDesejada;
     private double pesoDesejada;
+    
     
     
         
@@ -194,6 +200,48 @@ public class Usuario extends Entidade{
      */
     public void setPesoDesejada(double pesoDesejada) {
         this.pesoDesejada = pesoDesejada;
+    }
+
+    /**
+     * @return the idade
+     */
+    public int getIdade() {
+        return idade;
+    }
+
+    /**
+     * @param idade the idade to set
+     */
+    public void setIdade(int idade) {
+        this.idade = idade;
+    }
+
+    /**
+     * @return the meta
+     */
+    public String getMeta() {
+        return meta;
+    }
+
+    /**
+     * @param meta the meta to set
+     */
+    public void setMeta(String meta) {
+        this.meta = meta;
+    }
+
+    /**
+     * @return the lvlTreino
+     */
+    public String getLvlTreino() {
+        return lvlTreino;
+    }
+
+    /**
+     * @param lvlTreino the lvlTreino to set
+     */
+    public void setLvlTreino(String lvlTreino) {
+        this.lvlTreino = lvlTreino;
     }
    
 }

@@ -20,15 +20,23 @@ public class NewUsuario {
     teste.setAltura(0.00);
     teste.setCidade("cidade");
     teste.setEndereco("sua rua");
-    teste.setEstado("SIgla do estado");
+    teste.setEstado("Sigla do estado");
+    teste.setIdade(0);
     teste.setGorduraDesejada(0);
     teste.setImc(0);
     teste.setNome("Seu Nome");
+    teste.setMeta("");
+    teste.setLvlTreino("");
+    teste.setGordura(0);    
     teste.setPeso(0);
     teste.setPesoDesejada(0);
     teste.setSenha(password);
     teste.setUsuario(user);
+    
+    
+    
     DaoUsuario.insert(teste);
+    
     return true;
     }
 }
