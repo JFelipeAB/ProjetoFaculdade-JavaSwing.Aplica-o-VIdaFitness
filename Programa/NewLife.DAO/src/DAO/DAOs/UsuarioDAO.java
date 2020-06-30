@@ -28,8 +28,8 @@ public class UsuarioDAO {
         PreparedStatement stmt = null;
         
         try {
-            stmt = con.prepareStatement("INSERT INTO USUARIO(nome_usuario,senha,nome,endereco,cidade,estado,idade,peso,altura,qtd_gordura,)" +
-                                        "VALUES (?,?,?,?,?,?,?,?,?,?,?)");
+            stmt = con.prepareStatement("INSERT INTO USUARIO(usuario,senha,nome,endereco,cidade,estado,idade,peso,altura,gordura,gorduraDesejada,lvlTreino,meta,pesoDesejada,imc)" +
+                                        "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
             stmt.setString(1, u.getUsuario());
             stmt.setString(2, u.getSenha());
             stmt.setString(3, u.getNome());
@@ -72,18 +72,21 @@ public class UsuarioDAO {
             while(rs.next()){
                 Usuario u = new Usuario();
                 
-                u.setId_usuario(rs.getInt("id_usuario"));
-                u.setNome_usuario(rs.getString("nome_usuario"));
+                u.setUsuario(rs.getString("usuario"));
                 u.setSenha(rs.getString("senha"));
                 u.setNome(rs.getString("nome"));
                 u.setEndereco(rs.getString("endereco"));
                 u.setCidade(rs.getString("cidade"));
                 u.setEstado(rs.getString("estado"));
                 u.setIdade(rs.getInt("idade"));
-                u.setPeso(rs.getInt("peso"));
+                u.setPeso(rs.getDouble("peso"));
                 u.setAltura(rs.getDouble("altura"));
-                u.setQtd_gorduta(rs.getInt("qtd_gordura"));
-                u.setSexo(rs.getString("sexo"));
+                u.setGordura(rs.getDouble("gordura"));
+                u.setGorduraDesejada(rs.getDouble("gorduraDesejada"));
+                u.setLvlTreino(rs.getString("lvlTreino"));
+                u.setMeta(rs.getString("meta"));
+                u.setPesoDesejada(rs.getDouble("pesoDesejada"));
+                u.setImc(rs.getDouble("imc"));
                 
                 usuarios.add(u);
             }
