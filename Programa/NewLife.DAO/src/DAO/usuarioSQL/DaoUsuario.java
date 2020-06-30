@@ -11,19 +11,21 @@ import Comuns.vos.Usuario;
  * @author joao-
  */
 public class DaoUsuario {
-    public void insert(Usuario usuario)
+    public static void insert(Usuario usuario)
     {
     }
-    public void delet(Usuario usuario)
+    
+    public static void Update(Usuario usuario)
     {
     }
-    public void Update(Usuario usuario)
-    {
-    }
-    public Usuario select(String user)
+    public static Usuario select(String user)
     {
         Usuario u = new Usuario(); 
         return u;
-    }    
-    
+    }
+    public static Usuario select(String user, String passaword)
+    {
+        Usuario u = new Usuario(); 
+        return u;
+    }        
 }
