@@ -10,10 +10,9 @@ package Comuns.basis;
  * @author joao-
  */
 public enum EnumMetas {
-    Treino("treino"),
-    Alimentacao("Alimentacao"),
-    Sobre("Sobre"),
-    Perfil("Perfil");
+    Iniciante("treino"),
+    Intermediario("Alimentacao"),
+    Avançado("Sobre");
 
     private String descricao;
 

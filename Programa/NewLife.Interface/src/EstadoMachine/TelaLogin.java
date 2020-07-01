@@ -76,7 +76,7 @@ public class TelaLogin extends javax.swing.JFrame {
         btnEntrar1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnEntrar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEntrar1ActionPerformed(evt);
+                BtnEntrar1ActionPerformed(evt);
             }
         });
 
@@ -134,10 +134,10 @@ public class TelaLogin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnEntrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrar1ActionPerformed
+    private void BtnEntrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEntrar1ActionPerformed
         new TelaCadastrar().setVisible(true);
         this.hide();// TODO add your handling code here:
-    }//GEN-LAST:event_btnEntrar1ActionPerformed
+    }//GEN-LAST:event_BtnEntrar1ActionPerformed
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
         if(CrudUsuario.setUsuarioLogado(txtUsuario.getText(), txtSenha.getText()))

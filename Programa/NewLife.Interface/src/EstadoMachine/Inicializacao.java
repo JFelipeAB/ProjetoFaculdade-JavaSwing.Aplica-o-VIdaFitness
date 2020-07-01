@@ -10,7 +10,7 @@ package EstadoMachine;
  *
  * @author joao-
  */
-public class Inicializaçao {
+public class Inicializacao {
         
     /**
      * @param args the command line arguments
