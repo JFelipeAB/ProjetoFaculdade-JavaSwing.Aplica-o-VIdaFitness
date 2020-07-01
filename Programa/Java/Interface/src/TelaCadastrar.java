@@ -26,21 +26,105 @@ public class TelaCadastrar extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel8 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        txtUsuario1 = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        txtSenha1 = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        btnEntrar3 = new javax.swing.JButton();
+        btnEntrar2 = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel8.setFont(new java.awt.Font("Haettenschweiler", 0, 64)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 153, 51));
+        jLabel8.setText("NEWLIFE");
+
+        jLabel10.setFont(new java.awt.Font("Haettenschweiler", 0, 48)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 153, 51));
+        jLabel10.setText("CADASTRAR");
+
+        jLabel6.setFont(new java.awt.Font("Haettenschweiler", 0, 24)); // NOI18N
+        jLabel6.setText("Usuário");
+
+        txtUsuario1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        jLabel7.setFont(new java.awt.Font("Haettenschweiler", 0, 24)); // NOI18N
+        jLabel7.setText("Senha");
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/newlife logo 2.jpg"))); // NOI18N
+
+        btnEntrar3.setFont(new java.awt.Font("Haettenschweiler", 0, 24)); // NOI18N
+        btnEntrar3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/entrar.png"))); // NOI18N
+        btnEntrar3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnEntrar3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEntrar3ActionPerformed(evt);
+            }
+        });
+
+        btnEntrar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/cadastrar.png"))); // NOI18N
+        btnEntrar2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel6)
+                            .addComponent(txtUsuario1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7)
+                            .addComponent(txtSenha1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(73, 73, 73)
+                                .addComponent(jLabel8))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(64, 64, 64)
+                                .addComponent(jLabel10))
+                            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnEntrar2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(83, 83, 83)
+                        .addComponent(btnEntrar3, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel8)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel9)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtUsuario1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtSenha1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnEntrar3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnEntrar2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnEntrar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrar3ActionPerformed
+        new TelaLogin().setVisible(true);
+        this.hide();
+    }//GEN-LAST:event_btnEntrar3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +162,14 @@ public class TelaCadastrar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnEntrar2;
+    private javax.swing.JButton btnEntrar3;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JTextField txtSenha1;
+    private javax.swing.JTextField txtUsuario1;
     // End of variables declaration//GEN-END:variables
 }
