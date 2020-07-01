@@ -1,3 +1,7 @@
+
+import Business.UsuarioCrud.CrudUsuario;
+import Business.UsuarioCrud.NewUsuario;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -67,6 +71,11 @@ public class TelaCadastrar extends javax.swing.JFrame {
 
         btnEntrar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/cadastrar.png"))); // NOI18N
         btnEntrar2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnEntrar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEntrar2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -125,6 +134,20 @@ public class TelaCadastrar extends javax.swing.JFrame {
         new TelaLogin().setVisible(true);
         this.hide();
     }//GEN-LAST:event_btnEntrar3ActionPerformed
+
+    private void btnEntrar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrar2ActionPerformed
+        if(NewUsuario.NovoUser(txtUsuario1.getText(),txtSenha1.getText())) 
+        {
+            new TelaMenu().setVisible(true);
+            CrudUsuario.setUsuarioLogado(txtUsuario1.getText(),txtSenha1.getText());
+            this.hide();
+        }// TODO add your handling code here:
+        else
+        {
+        txtUsuario1.setText("Usuario ja existente");
+        txtSenha1.setText("");
+        }// TODO add your handling code here:
+    }//GEN-LAST:event_btnEntrar2ActionPerformed
 
     /**
      * @param args the command line arguments

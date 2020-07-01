@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package Business.UsuarioCrud;
-import DAO.usuarioSQL.DaoUsuario;
+import DAO.DAOs.UsuarioDAO;
 import Comuns.vos.Usuario;
 /**
  *
@@ -13,18 +13,18 @@ import Comuns.vos.Usuario;
 public class NewUsuario {
     public static boolean NovoUser(String user, String password)
     {    
-    Usuario teste = DaoUsuario.select(user);
+    Usuario teste = UsuarioDAO.select(user);
     if(teste.getUsuario().isEmpty())
         return false;
     teste = new Usuario();
     teste.setAltura(0.00);
-    teste.setCidade("cidade");
-    teste.setEndereco("sua rua");
+    teste.setCidade("Preencha seus dados");
+    teste.setEndereco("Preencha seus dados");
     teste.setEstado("Sigla do estado");
     teste.setIdade(0);
     teste.setGorduraDesejada(0);
     teste.setImc(0);
-    teste.setNome("Seu Nome");
+    teste.setNome("Preencha seus dados");
     teste.setMeta("");
     teste.setLvlTreino("");
     teste.setGordura(0);    
@@ -35,7 +35,7 @@ public class NewUsuario {
     
     
     
-    DaoUsuario.insert(teste);
+    UsuarioDao.create(teste);
     
     return true;
     }

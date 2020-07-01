@@ -43,6 +43,7 @@ public class CrudUsuario {
         usuarioLogado = atual;
         return true;
     }
+    static public void Alterar 
 }
 
     

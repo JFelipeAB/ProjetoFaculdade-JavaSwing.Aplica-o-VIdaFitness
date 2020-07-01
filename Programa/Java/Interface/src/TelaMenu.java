@@ -1,3 +1,7 @@
+
+import Business.UsuarioCrud.CrudUsuario;
+import Comuns.vos.Usuario;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -15,6 +19,16 @@ public class TelaMenu extends javax.swing.JFrame {
      */
     public TelaMenu() {
         initComponents();
+         Usuario u = CrudUsuario.getInstance();
+         txtUsuario3.setText(u.getUsuario());
+         txtSenha3.setText("********");
+         txtNome1.setText(u.getNome());
+         txtEndereco.setText(u.getEndereco());
+         txtEstado.setText(u.getEstado());
+         jSpinner21.setValue(u.getIdade());
+         jSpinner22.setValue(u.getPeso());
+         jSpinner23.setValue(u.getAltura());
+         jSpinner24.setValue(u.getGordura());
     }
 
     /**
@@ -793,20 +807,20 @@ public class TelaMenu extends javax.swing.JFrame {
                                 .addGap(58, 58, 58)
                                 .addComponent(jLabel5)))
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(598, 598, 598)
-                                .addComponent(jLabel48))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(187, 187, 187)
-                                .addComponent(jLabel41)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel6)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel46, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(187, 187, 187))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
                                 .addGap(48, 48, 48)
-                                .addComponent(jLabel4))))
+                                .addComponent(jLabel4))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(204, 204, 204)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel48)
+                                    .addGroup(jPanel4Layout.createSequentialGroup()
+                                        .addComponent(jLabel41)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel6)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel46, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(187, 187, 187))))))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(654, 654, 654)
                         .addComponent(btnAtualizar4, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -819,6 +833,7 @@ public class TelaMenu extends javax.swing.JFrame {
                         .addGap(328, 328, 328))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel42)
+                        .addGap(0, 0, 0)
                         .addComponent(jSpinner17, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel44)
@@ -939,6 +954,8 @@ public class TelaMenu extends javax.swing.JFrame {
 
         abaMapa.addTab("Mapa", jPanel6);
 
+        txtUsuario3.setEditable(false);
+
         jLabel71.setFont(new java.awt.Font("Haettenschweiler", 0, 48)); // NOI18N
         jLabel71.setForeground(new java.awt.Color(255, 153, 51));
         jLabel71.setText("Perfil");
@@ -955,11 +972,16 @@ public class TelaMenu extends javax.swing.JFrame {
         txtCidade1.setToolTipText("");
 
         jLabel75.setFont(new java.awt.Font("Leelawadee", 0, 20)); // NOI18N
-        jLabel75.setText("Altura (m)");
+        jLabel75.setText("Altura (cm)");
 
         btnAtualizar6.setFont(new java.awt.Font("Haettenschweiler", 0, 36)); // NOI18N
         btnAtualizar6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/refresh pequeno.png"))); // NOI18N
         btnAtualizar6.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 204, 255), 3, true));
+        btnAtualizar6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAtualizar6ActionPerformed(evt);
+            }
+        });
 
         jSpinner21.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
@@ -1014,14 +1036,11 @@ public class TelaMenu extends javax.swing.JFrame {
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel78)
                         .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel78)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel71)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jLabel76, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel71)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jLabel76, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
@@ -1060,8 +1079,8 @@ public class TelaMenu extends javax.swing.JFrame {
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(jLabel73)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jSpinner24, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addContainerGap(128, Short.MAX_VALUE)))))
+                                    .addComponent(jSpinner24, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1141,6 +1160,18 @@ public class TelaMenu extends javax.swing.JFrame {
     private void cbNvlTreinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbNvlTreinoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbNvlTreinoActionPerformed
+
+    private void btnAtualizar6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizar6ActionPerformed
+        Usuario u = CrudUsuario.getInstance();// TODO add your handling code here:()
+         u.setNome(txtNome1.getText());
+         u.setSenha(txtSenha3.getText());
+         u.setEndereco(txtEndereco.getText());
+         u.setEstado(txtEstado.getText()); 
+         u.setIdade((int)jSpinner21.getValue());         
+         u.setPeso((Double)jSpinner22.getValue());
+         u.setAltura((Double)jSpinner23.getValue());
+         u.setGordura((Double)jSpinner24.getValue());
+    }//GEN-LAST:event_btnAtualizar6ActionPerformed
 
     /**
      * @param args the command line arguments
