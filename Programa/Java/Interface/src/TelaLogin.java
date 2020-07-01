@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 import Business.UsuarioCrud.CrudUsuario;
+import java.sql.SQLException;
 /**
  *
  * @author Administrador
@@ -152,16 +153,18 @@ public class TelaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEntrar1ActionPerformed
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-        if(CrudUsuario.setUsuarioLogado(txtUsuario.getText(), txtSenha.getText()))
-        {
-            new TelaMenu().setVisible(true);
-            this.hide();
-        }// TODO add your handling code here:
-        else
-        {
-            txtUsuario.setText("Usuario ou senha incorreta");
-            txtSenha.setText("");
-        }
+        
+            if(CrudUsuario.setUsuarioLogado(txtUsuario.getText(), txtSenha.getText()))
+            {
+                new TelaMenu().setVisible(true);
+                this.hide();
+            }// TODO add your handling code here:
+            else
+            {
+                txtUsuario.setText("Usuario ou senha incorreta");
+                txtSenha.setText("");
+            }
+        
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     /**

@@ -5,9 +5,9 @@
  */
 package Business.UsuarioCrud;
 
-import DAO.usuarioSQL.DaoUsuario;
-import Comuns.vos.Usuario;
 
+import Comuns.vos.Usuario;
+import DAO.DAOs.UsuarioDAO;
 
 /**
  *
@@ -34,16 +34,30 @@ public class CrudUsuario {
     }
 
     /**
-     * @param acessoFuncionario the acessoFuncionario to set
+     * 
      */
     static public boolean setUsuarioLogado(String user, String password){
-        Usuario atual = DaoUsuario.select(user, password);
-        if(atual.getUsuario().isEmpty() )
+        Usuario atual = new Usuario();
+        try{
+//            atual = UsuarioDAO.Select(user, password);
+        }
+        catch(Exception ex)
+        {
+            Usuario aux = new Usuario();
+            aux.setUsuario(user);
+            aux.setSenha(password);
+            atual = aux;
+            
+        }
+        if(!atual.getUsuario().equals("admin") )
             return false;
         usuarioLogado = atual;
         return true;
     }
-    static public void Alterar 
+    static public void Alterar (String user)
+    {
+        
+    }
 }
 
     

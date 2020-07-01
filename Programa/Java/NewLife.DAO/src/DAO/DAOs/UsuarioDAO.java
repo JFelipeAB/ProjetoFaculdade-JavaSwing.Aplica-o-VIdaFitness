@@ -11,8 +11,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -56,7 +54,7 @@ public class UsuarioDAO {
         }
     }
     
-    public static Usuario Select(String user){
+    public static Usuario Select(String user, String password){
         
         
         Connection con = ConnectionFactory.getConnection();
@@ -66,7 +64,7 @@ public class UsuarioDAO {
         
         try {
             stmt = con.prepareStatement("SELECT " +user +
-                                        "FROM USUARIO");
+                                        " FROM USUARIO");
             rs = stmt.executeQuery();
             
                 
