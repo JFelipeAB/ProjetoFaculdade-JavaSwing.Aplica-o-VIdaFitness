@@ -43,20 +43,20 @@ public class CrudUsuario {
         }
         catch(Exception ex)
         {
+                       
+        }
             Usuario aux = new Usuario();
             aux.setUsuario(user);
             aux.setSenha(password);
-            atual = aux;
-            
-        }
+            atual = aux; 
         if(!atual.getUsuario().equals("admin") )
             return false;
         usuarioLogado = atual;
         return true;
     }
-    static public void Alterar (String user)
+    static public void Alterar (Usuario u)
     {
-        
+        usuarioLogado = u;
     }
 }
 
