@@ -18,17 +18,18 @@ public class TelaMenu extends javax.swing.JFrame {
      * Creates new form TelaMenu
      */
     public TelaMenu() {
-        initComponents();
-         Usuario u = CrudUsuario.getInstance();
-         txtUsuario3.setText(u.getUsuario());
+        initComponents();        
+         Usuario u = CrudUsuario.getInstance();        
+         txtUsuario3.setText("admin");
          txtSenha3.setText("********");
          txtNome1.setText(u.getNome());
          txtEndereco.setText(u.getEndereco());
-         txtEstado.setText(u.getEstado());
-         jSpinner21.setValue(u.getIdade());
-         jSpinner22.setValue(u.getPeso());
-         jSpinner23.setValue(u.getAltura());
-         jSpinner24.setValue(u.getGordura());
+         txtEstado4.setText(u.getEstado());
+         txtEstado2.setText(String.valueOf(u.getIdade()));
+         txtEstado3.setText(String.valueOf(u.getPeso()));
+         txtEstado6.setText(String.valueOf(u.getAltura()));
+         txtEstado5.setText(String.valueOf(u.getGordura()));
+         
     }
 
     /**
@@ -470,6 +471,12 @@ public class TelaMenu extends javax.swing.JFrame {
         jLabel70.setText("Estado");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        abaMeta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                abaMetaMouseClicked(evt);
+            }
+        });
 
         jLabel15.setFont(new java.awt.Font("Haettenschweiler", 0, 48)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 153, 51));
@@ -1168,6 +1175,10 @@ public class TelaMenu extends javax.swing.JFrame {
          u.setGordura(Double.parseDouble(txtEstado5.getText()));
          CrudUsuario.Alterar(u);
     }//GEN-LAST:event_btnAtualizar6ActionPerformed
+
+    private void abaMetaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_abaMetaMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_abaMetaMouseClicked
 
     /**
      * @param args the command line arguments

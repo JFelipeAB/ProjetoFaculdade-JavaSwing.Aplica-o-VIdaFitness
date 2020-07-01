@@ -29,14 +29,14 @@ public class CrudUsuario {
     }
        
     
-    public Usuario getUsuarioLogado() {
+    public static Usuario getUsuarioLogado() {
         return usuarioLogado;
     }
 
     /**
      * 
      */
-    static public boolean setUsuarioLogado(String user, String password){
+     public static boolean setUsuarioLogado(String user, String password){
         Usuario atual = new Usuario();
         try{
 //            atual = UsuarioDAO.Select(user, password);
@@ -54,7 +54,7 @@ public class CrudUsuario {
         usuarioLogado = atual;
         return true;
     }
-    static public void Alterar (Usuario u)
+    public static void Alterar (Usuario u)
     {
         usuarioLogado = u;
     }
