@@ -7,8 +7,6 @@ package EstadoMachine;
 
 import Business.UsuarioCrud.CrudUsuario;
 import Business.UsuarioCrud.NewUsuario;
-import java.awt.Color;
-
 /**
  *
  * @author joao-
