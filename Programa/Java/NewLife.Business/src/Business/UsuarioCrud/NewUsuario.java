@@ -13,7 +13,7 @@ import Comuns.vos.Usuario;
 public class NewUsuario {
     public static boolean NovoUser(String user, String password)
     {    
-    Usuario teste = UsuarioDAO.select(user);
+    Usuario teste = UsuarioDAO.Select(user);
     if(teste.getUsuario().isEmpty())
         return false;
     teste = new Usuario();
@@ -33,9 +33,7 @@ public class NewUsuario {
     teste.setSenha(password);
     teste.setUsuario(user);
     
-    
-    
-    UsuarioDao.create(teste);
+    UsuarioDAO.Insert(teste);
     
     return true;
     }

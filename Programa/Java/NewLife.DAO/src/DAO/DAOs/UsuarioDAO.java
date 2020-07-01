@@ -23,7 +23,7 @@ import Comuns.vos.Usuario;
  * @author ighor
  */
 public class UsuarioDAO {
-    public void create(Usuario u){
+    public static void Insert(Usuario u){
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         
@@ -56,21 +56,19 @@ public class UsuarioDAO {
         }
     }
     
-    public List<Usuario> listar(){
+    public static Usuario Select(String user){
         
         
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        List<Usuario> usuarios = new ArrayList<>();
+        Usuario u = new Usuario();
         
         try {
-            stmt = con.prepareStatement("SELECT *" +
+            stmt = con.prepareStatement("SELECT " +user +
                                         "FROM USUARIO");
             rs = stmt.executeQuery();
             
-            while(rs.next()){
-                Usuario u = new Usuario();
                 
                 u.setUsuario(rs.getString("usuario"));
                 u.setSenha(rs.getString("senha"));
@@ -87,9 +85,7 @@ public class UsuarioDAO {
                 u.setMeta(rs.getString("meta"));
                 u.setPesoDesejada(rs.getDouble("pesoDesejada"));
                 u.setImc(rs.getDouble("imc"));
-                
-                usuarios.add(u);
-            }
+               
             
         } catch (SQLException ex) {
             Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -97,6 +93,6 @@ public class UsuarioDAO {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
         
-        return usuarios;
+        return u;
     }
 }
