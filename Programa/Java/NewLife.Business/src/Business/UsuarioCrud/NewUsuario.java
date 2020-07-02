@@ -12,14 +12,8 @@ import Comuns.vos.Usuario;
  */
 public class NewUsuario {
     public static boolean NovoUser(String user, String password)
-    { 
-    Usuario teste = new Usuario();
-        try{
-    teste = UsuarioDAO.Select(user, password);
-    }
-    catch(Exception x)
-    {
-    }
+    {    
+    Usuario teste = UsuarioDAO.Select(user, password);
     if(teste.getUsuario().isEmpty())
         return false;
     teste = new Usuario();
@@ -38,12 +32,11 @@ public class NewUsuario {
     teste.setPesoDesejada(0);
     teste.setSenha(password);
     teste.setUsuario(user);
-    try{
+    
+    
+    
     UsuarioDAO.Insert(teste);
-    }
-    catch(Exception x)
-    {
-    }
+    
     return true;
     }
 }

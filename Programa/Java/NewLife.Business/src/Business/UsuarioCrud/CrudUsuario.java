@@ -14,47 +14,55 @@ import DAO.DAOs.UsuarioDAO;
  * @author joao-
  */
 public class CrudUsuario {
-    private static Usuario uniqueInstance;
+    private static CrudUsuario uniqueInstance;
  
     private CrudUsuario() {
     }
     private static Usuario usuarioLogado;
     
     
-    public static synchronized Usuario getInstance() {
+    public static synchronized CrudUsuario getInstance() {
         if (uniqueInstance == null)
-            uniqueInstance = new Usuario();
+            uniqueInstance = new CrudUsuario();
  
         return uniqueInstance;
     }
        
     
-    public static Usuario getUsuarioLogado() {
+    public Usuario getUsuarioLogado() {
         return usuarioLogado;
     }
 
     /**
      * 
      */
-     public static boolean setUsuarioLogado(String user, String password){
-        Usuario atual = new Usuario();
+     public boolean setUsuarioLogado(Usuario u){
+        u.setAltura(0.00);
+    u.setCidade("Preencha seus dados");
+    u.setEndereco("Preencha seus dados");
+    u.setEstado("SP");
+    u.setIdade(0);
+    u.setGorduraDesejada(0);
+    u.setImc(0);
+    u.setNome("Preencha seus dados");
+    u.setMeta("");
+    u.setLvlTreino("");
+    u.setGordura(0);    
+    u.setPeso(0);
+    u.setPesoDesejada(0);
         try{
-//            atual = UsuarioDAO.Select(user, password);
+//            u = UsuarioDAO.Select(u.getUsuario(), u.getSenha());
         }
         catch(Exception ex)
         {
                        
-        }
-            Usuario aux = new Usuario();
-            aux.setUsuario(user);
-            aux.setSenha(password);
-            atual = aux; 
-        if(!atual.getUsuario().equals("admin") )
+        }           
+        if(!u.getUsuario().equals("admin") )
             return false;
-        usuarioLogado = atual;
+        usuarioLogado = u;
         return true;
     }
-    public static void Alterar (Usuario u)
+    public void Alterar (Usuario u)
     {
         usuarioLogado = u;
     }

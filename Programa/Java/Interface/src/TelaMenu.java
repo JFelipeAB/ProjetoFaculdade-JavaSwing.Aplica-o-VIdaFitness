@@ -19,16 +19,17 @@ public class TelaMenu extends javax.swing.JFrame {
      */
     public TelaMenu() {
         initComponents();        
-         Usuario u = CrudUsuario.getInstance();        
-         txtUsuario3.setText("admin");
+         Usuario u = CrudUsuario.getInstance().getUsuarioLogado();        
+         txtUsuario3.setText(u.getUsuario());
          txtSenha3.setText("********");
          txtNome1.setText(u.getNome());
-         txtEndereco.setText(u.getEndereco());
+         txtEndereco1.setText(u.getEndereco());
+         txtCidade1.setText(u.getCidade());
          txtEstado4.setText(u.getEstado());
          txtEstado2.setText(String.valueOf(u.getIdade()));
          txtEstado3.setText(String.valueOf(u.getPeso()));
-         txtEstado6.setText(String.valueOf(u.getAltura()));
-         txtEstado5.setText(String.valueOf(u.getGordura()));
+         txtEstado6.setText(String.valueOf(u.getAltura()).toString());
+         txtEstado5.setText(String.valueOf(u.getGordura()).toString());
          
     }
 
@@ -105,18 +106,18 @@ public class TelaMenu extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         btnAtualizar1 = new javax.swing.JButton();
         jLabel20 = new javax.swing.JLabel();
-        jSpinner6 = new javax.swing.JSpinner();
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         txtIMC = new javax.swing.JTextField();
-        jSpinner7 = new javax.swing.JSpinner();
         cbMeta = new javax.swing.JComboBox<>();
         cbNvlTreino = new javax.swing.JComboBox<>();
         jLabel32 = new javax.swing.JLabel();
         btnAjuda1 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        txtIMC1 = new javax.swing.JTextField();
+        txtIMC2 = new javax.swing.JTextField();
         abaTreino = new javax.swing.JTabbedPane();
         jPanel5 = new javax.swing.JPanel();
         jLabel50 = new javax.swing.JLabel();
@@ -477,6 +478,11 @@ public class TelaMenu extends javax.swing.JFrame {
                 abaMetaMouseClicked(evt);
             }
         });
+        abaMeta.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                abaMetaComponentShown(evt);
+            }
+        });
 
         jLabel15.setFont(new java.awt.Font("Haettenschweiler", 0, 48)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 153, 51));
@@ -491,8 +497,11 @@ public class TelaMenu extends javax.swing.JFrame {
         btnAtualizar1.setFont(new java.awt.Font("Haettenschweiler", 0, 36)); // NOI18N
         btnAtualizar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/refresh pequeno.png"))); // NOI18N
         btnAtualizar1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 204, 255), 3));
-
-        jSpinner6.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        btnAtualizar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAtualizar1ActionPerformed(evt);
+            }
+        });
 
         jLabel21.setFont(new java.awt.Font("Leelawadee UI", 0, 20)); // NOI18N
         jLabel21.setText("Meta");
@@ -504,8 +513,6 @@ public class TelaMenu extends javax.swing.JFrame {
         jLabel23.setText("Nível de treino");
 
         txtIMC.setEnabled(false);
-
-        jSpinner7.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
         cbMeta.setFont(new java.awt.Font("Leelawadee", 0, 14)); // NOI18N
         cbMeta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Equilíbrio saudável", "Ganho de massa magra", "Perda de peso" }));
@@ -530,6 +537,12 @@ public class TelaMenu extends javax.swing.JFrame {
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/meta12.png"))); // NOI18N
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/meta.png"))); // NOI18N
+
+        txtIMC1.setEditable(false);
+        txtIMC1.setEnabled(false);
+
+        txtIMC2.setEditable(false);
+        txtIMC2.setEnabled(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -568,9 +581,9 @@ public class TelaMenu extends javax.swing.JFrame {
                                             .addComponent(jLabel17)
                                             .addComponent(jLabel16))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jSpinner7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jSpinner6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txtIMC1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtIMC2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(btnAtualizar1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -614,11 +627,11 @@ public class TelaMenu extends javax.swing.JFrame {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabel16)
-                                .addComponent(jSpinner7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtIMC1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabel17)
-                                .addComponent(jSpinner6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(txtIMC2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -961,6 +974,8 @@ public class TelaMenu extends javax.swing.JFrame {
 
         abaMapa.addTab("Mapa", jPanel6);
 
+        txtUsuario3.setEditable(false);
+
         jLabel71.setFont(new java.awt.Font("Haettenschweiler", 0, 48)); // NOI18N
         jLabel71.setForeground(new java.awt.Color(255, 153, 51));
         jLabel71.setText("Perfil");
@@ -1164,7 +1179,7 @@ public class TelaMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_cbNvlTreinoActionPerformed
 
     private void btnAtualizar6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizar6ActionPerformed
-        Usuario u = CrudUsuario.getInstance();// TODO add your handling code here:()
+        Usuario u = CrudUsuario.getInstance().getUsuarioLogado();// TODO add your handling code here:()
          u.setNome(txtNome1.getText());
          u.setSenha(txtSenha3.getText());
          u.setEndereco(txtEndereco.getText());
@@ -1173,12 +1188,24 @@ public class TelaMenu extends javax.swing.JFrame {
          u.setPeso(Double.parseDouble(txtEstado3.getText()));
          u.setAltura(Double.parseDouble(txtEstado6.getText()));
          u.setGordura(Double.parseDouble(txtEstado5.getText()));
-         CrudUsuario.Alterar(u);
+         CrudUsuario.getInstance().Alterar(u);
+         
     }//GEN-LAST:event_btnAtualizar6ActionPerformed
 
     private void abaMetaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_abaMetaMouseClicked
+        
+        
+        
         // TODO add your handling code here:
     }//GEN-LAST:event_abaMetaMouseClicked
+
+    private void btnAtualizar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizar1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAtualizar1ActionPerformed
+
+    private void abaMetaComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_abaMetaComponentShown
+        // TODO add your handling code here:
+    }//GEN-LAST:event_abaMetaComponentShown
 
     /**
      * @param args the command line arguments
@@ -1337,8 +1364,6 @@ public class TelaMenu extends javax.swing.JFrame {
     private javax.swing.JSpinner jSpinner3;
     private javax.swing.JSpinner jSpinner4;
     private javax.swing.JSpinner jSpinner5;
-    private javax.swing.JSpinner jSpinner6;
-    private javax.swing.JSpinner jSpinner7;
     private javax.swing.JSpinner jSpinner8;
     private javax.swing.JSpinner jSpinner9;
     private javax.swing.JTextField txtCidade;
@@ -1355,6 +1380,8 @@ public class TelaMenu extends javax.swing.JFrame {
     private javax.swing.JTextField txtEstado5;
     private javax.swing.JTextField txtEstado6;
     private javax.swing.JTextField txtIMC;
+    private javax.swing.JTextField txtIMC1;
+    private javax.swing.JTextField txtIMC2;
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtNome1;
     private javax.swing.JTextField txtSenha2;

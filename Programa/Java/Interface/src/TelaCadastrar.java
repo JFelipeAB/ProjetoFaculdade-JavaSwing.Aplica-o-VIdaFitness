@@ -1,6 +1,7 @@
 
 import Business.UsuarioCrud.CrudUsuario;
 import Business.UsuarioCrud.NewUsuario;
+import Comuns.vos.Usuario;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -136,17 +137,20 @@ public class TelaCadastrar extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEntrar3ActionPerformed
 
     private void btnEntrar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrar2ActionPerformed
-        if(NewUsuario.NovoUser(txtUsuario1.getText(),txtSenha1.getText())) 
-        {
+//        if(NewUsuario.NovoUser(txtUsuario1.getText(),txtSenha1.getText())) 
+//        {
             new TelaMenu().setVisible(true);
-            CrudUsuario.setUsuarioLogado(txtUsuario1.getText(),txtSenha1.getText());
+            Usuario u = new Usuario();
+            u.setUsuario(txtUsuario1.getText());
+            u.setSenha(txtSenha1.getText());
+            CrudUsuario.getInstance().setUsuarioLogado(u);
             this.hide();
-        }// TODO add your handling code here:
-        else
-        {
-        txtUsuario1.setText("Usuario ja existente");
-        txtSenha1.setText("");
-        }// TODO add your handling code here:
+//        }// TODO add your handling code here:
+//        else
+//        {
+//        txtUsuario1.setText("Usuario ja existente");
+//        txtSenha1.setText("");
+//        }// TODO add your handling code here:
     }//GEN-LAST:event_btnEntrar2ActionPerformed
 
     /**
