@@ -14,7 +14,7 @@ import java.util.ArrayList;
  * @author joao-
  */
 public class AuxiliaUsuario {
-    public static double UsuarioMeta()
+    public static double UsuarioIMC()
     {
         Usuario u = CrudUsuario.getInstance().getUsuarioLogado();
         double imc = u.getPeso()/(u.getAltura()*u.getAltura());
