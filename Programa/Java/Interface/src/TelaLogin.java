@@ -156,11 +156,9 @@ public class TelaLogin extends javax.swing.JFrame {
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
         
-            Usuario u = new Usuario();
-            u.setUsuario(txtUsuario.getText());
-            if(/*CrudUsuario.CheckUser(txtUsuario.getText(),txtSenha.getText())*/u.getUsuario().equals("admin"))
-            {
-                
+            Usuario u = CrudUsuario.CheckUser(txtUsuario.getText(),txtSenha.getText());            
+            if(u != null) 
+            {                
                 AcessoUsuario.getInstance().setUsuarioLogado(u);
                 new TelaMenu().setVisible(true);
                 this.hide();

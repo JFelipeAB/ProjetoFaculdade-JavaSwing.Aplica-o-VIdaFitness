@@ -30,20 +30,28 @@ public class CrudUsuario {
     uNovo.setPesoDesejada(0);
     uNovo.setSenha(password);
     uNovo.setUsuario(user);
-            
-//    UsuarioDAO.Insert(uNovo);
     }
-    public static boolean CheckUser(String user, String password)
-    {    
     
-     
-        Usuario uCheck = UsuarioDAO.Select(user, password);
-        if(uCheck != null)
-        {
-            if(uCheck.getUsuario().equals(user) & uCheck.getSenha().equals(password))
-                return true;
-        }
-        return false;
+    public static Usuario CheckUser(String user, String password)
+    {    
+//        Usuario uCheck = UsuarioDAO.Select(user);
+//        if(uCheck != null)
+//        {
+//            if(uCheck.getUsuario().equals(user) & uCheck.getSenha().equals(password))
+//                return uCheck;
+//        }
+//        return null;//        
+        
+        Usuario u = new Usuario();//quebra galho
+        u.setUsuario(user);//quebra galho 
+            if(!u.getUsuario().equals("admin"))//quebra galho 
+                return null;//quebra galho
+        return u;//quebra galho        
+    }
+    public static Usuario CheckUser(String user)
+    {    
+        Usuario uCheck = UsuarioDAO.Select(user);
+        return uCheck;         
     }
     public static void Alterar (Usuario u)
     {

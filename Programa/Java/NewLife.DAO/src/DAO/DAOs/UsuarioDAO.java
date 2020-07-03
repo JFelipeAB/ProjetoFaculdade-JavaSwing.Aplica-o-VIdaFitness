@@ -54,7 +54,7 @@ public class UsuarioDAO {
         }
     }
     
-    public static Usuario Select(String user, String password){
+    public static Usuario Select(String user){
         
         
         Connection con = ConnectionFactory.getConnection();

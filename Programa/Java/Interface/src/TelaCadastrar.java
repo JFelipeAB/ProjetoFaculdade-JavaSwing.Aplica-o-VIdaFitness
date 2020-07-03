@@ -137,16 +137,19 @@ public class TelaCadastrar extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEntrar3ActionPerformed
 
     private void btnEntrar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrar2ActionPerformed
-//        if(CrudUsuario.NovoUser(txtUsuario1.getText(),txtSenha1.getText())) 
-//        {
-            new TelaMenu().setVisible(true);
-            Usuario u = new Usuario();
-            u.setUsuario(txtUsuario1.getText());
-            u.setSenha(txtSenha1.getText());
-            AcessoUsuario.getInstance().setUsuarioLogado(u);
-            this.hide();
-//        }// TODO add your handling code here:
-//        else
+            Usuario u = CrudUsuario.CheckUser(txtUsuario1.getText(),txtSenha1.getText());            
+            if(u == null) 
+            {   
+                
+            }// TODO add your handling code here:
+            else
+            {
+                txtUsuario1.setText("Usuario Ja existe");
+                txtSenha1.setText("");
+            }
+
+
+//        
 //        {
 //        txtUsuario1.setText("Usuario ja existente");
 //        txtSenha1.setText("");
