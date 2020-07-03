@@ -1,5 +1,6 @@
 
 import Business.UsuarioCrud.AuxiliaUsuario;
+import Business.UsuarioCrud.AcessoUsuario;
 import Business.UsuarioCrud.CrudUsuario;
 import Comuns.vos.Usuario;
 
@@ -20,7 +21,7 @@ public class TelaMenu extends javax.swing.JFrame {
      */
     public TelaMenu() {
         initComponents();        
-         Usuario u = CrudUsuario.getInstance().getUsuarioLogado();        
+         Usuario u = AcessoUsuario.getInstance().getUsuarioLogado();        
          txtUsuario3.setText(u.getUsuario());
          txtSenha3.setText("********");
          txtNome1.setText(u.getNome());
@@ -1052,7 +1053,7 @@ public class TelaMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_cbNvlTreinoActionPerformed
 
     private void btnAtualizar6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizar6ActionPerformed
-        Usuario u = CrudUsuario.getInstance().getUsuarioLogado();// TODO add your handling code here:()
+        Usuario u = AcessoUsuario.getInstance().getUsuarioLogado();// TODO add your handling code here:()
          u.setNome(txtNome1.getText());
          u.setSenha(txtSenha3.getText());
          u.setEndereco(txtEndereco.getText());
@@ -1061,12 +1062,12 @@ public class TelaMenu extends javax.swing.JFrame {
          u.setPeso(Double.parseDouble(txtEstado3.getText()));
          u.setAltura(Double.parseDouble(txtEstado6.getText()));
          u.setGordura(Double.parseDouble(txtEstado5.getText()));
-         CrudUsuario.getInstance().Alterar(u);
+         CrudUsuario.Alterar(u);
          
     }//GEN-LAST:event_btnAtualizar6ActionPerformed
 
     private void btnAtualizar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizar1ActionPerformed
-       Usuario u = CrudUsuario.getInstance().getUsuarioLogado();
+       Usuario u = AcessoUsuario.getInstance().getUsuarioLogado();
         u.setGorduraDesejada(Double.parseDouble(txtGorduraD.getText()));
         u.setPesoDesejada(Double.parseDouble(txtPesoD8.getText()));
         u.setMeta(cbMeta.toString());

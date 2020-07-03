@@ -1,6 +1,6 @@
 
+import Business.UsuarioCrud.AcessoUsuario;
 import Business.UsuarioCrud.CrudUsuario;
-import Business.UsuarioCrud.NewUsuario;
 import Comuns.vos.Usuario;
 
 /*
@@ -137,13 +137,13 @@ public class TelaCadastrar extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEntrar3ActionPerformed
 
     private void btnEntrar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrar2ActionPerformed
-//        if(NewUsuario.NovoUser(txtUsuario1.getText(),txtSenha1.getText())) 
+//        if(CrudUsuario.NovoUser(txtUsuario1.getText(),txtSenha1.getText())) 
 //        {
             new TelaMenu().setVisible(true);
             Usuario u = new Usuario();
             u.setUsuario(txtUsuario1.getText());
             u.setSenha(txtSenha1.getText());
-            CrudUsuario.getInstance().setUsuarioLogado(u);
+            AcessoUsuario.getInstance().setUsuarioLogado(u);
             this.hide();
 //        }// TODO add your handling code here:
 //        else

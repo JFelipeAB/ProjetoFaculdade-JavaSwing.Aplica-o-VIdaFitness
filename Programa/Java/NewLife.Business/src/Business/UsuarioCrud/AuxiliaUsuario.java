@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class AuxiliaUsuario {
     public static double UsuarioIMC()
     {
-        Usuario u = CrudUsuario.getInstance().getUsuarioLogado();
+        Usuario u = AcessoUsuario.getInstance().getUsuarioLogado();
         double imc = u.getPeso()/(u.getAltura()*u.getAltura());
         u.setImc(imc);
         return imc;
@@ -25,8 +25,8 @@ public class AuxiliaUsuario {
     public static ArrayList<String> UsuarioTreino()
     {
         ArrayList<String> treino = new ArrayList();
-        String uTreino = CrudUsuario.getInstance().getUsuarioLogado().getLvlTreino();
-        String uDieta = CrudUsuario.getInstance().getUsuarioLogado().getMeta();
+        String uTreino = AcessoUsuario.getInstance().getUsuarioLogado().getLvlTreino();
+        String uDieta = AcessoUsuario.getInstance().getUsuarioLogado().getMeta();
         if(uTreino.toUpperCase().equals("INICIANTE"))
         {
             if(uDieta.toUpperCase().equals("PERDA DE PESO") || uDieta.toUpperCase().equals("PERDA DE GORDURA"))
@@ -95,9 +95,9 @@ public class AuxiliaUsuario {
     public static ArrayList<Double> UsuarioDieta()
     {
         ArrayList<Double> dieta = new ArrayList();
-//        String uTreino = CrudUsuario.getInstance().getLvlTreino();
-        String uDieta = CrudUsuario.getInstance().getUsuarioLogado().getMeta();
-        Double uPeso = CrudUsuario.getInstance().getUsuarioLogado().getPeso();
+//        String uTreino = AcessoUsuario.getInstance().getLvlTreino();
+        String uDieta = AcessoUsuario.getInstance().getUsuarioLogado().getMeta();
+        Double uPeso = AcessoUsuario.getInstance().getUsuarioLogado().getPeso();
         double agua= 3500;
         if(uDieta.toUpperCase().equals("PERDA DE PESO") || uDieta.toUpperCase().equals("PERDA DE GORDURA"))
         {

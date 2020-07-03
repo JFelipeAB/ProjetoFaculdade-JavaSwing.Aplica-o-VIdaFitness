@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+import Business.UsuarioCrud.AcessoUsuario;
 import Business.UsuarioCrud.CrudUsuario;
 import Comuns.vos.Usuario;
 import java.sql.SQLException;
@@ -157,9 +158,10 @@ public class TelaLogin extends javax.swing.JFrame {
         
             Usuario u = new Usuario();
             u.setUsuario(txtUsuario.getText());
-            u.setSenha(txtSenha.getText());
-            if(CrudUsuario.getInstance().setUsuarioLogado(u))
+            if(/*CrudUsuario.CheckUser(txtUsuario.getText(),txtSenha.getText())*/u.getUsuario().equals("admin"))
             {
+                
+                AcessoUsuario.getInstance().setUsuarioLogado(u);
                 new TelaMenu().setVisible(true);
                 this.hide();
             }// TODO add your handling code here:
