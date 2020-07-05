@@ -15,7 +15,7 @@ public class CrudUsuario {
     public static void NewkUser(String user, String password)
     {
     Usuario uNovo = new Usuario();
-    uNovo.setAltura(0.00);
+    uNovo.setAltura(0);
     uNovo.setCidade("Preencha seus dados");
     uNovo.setEndereco("Preencha seus dados");
     uNovo.setEstado("Sigla do estado");

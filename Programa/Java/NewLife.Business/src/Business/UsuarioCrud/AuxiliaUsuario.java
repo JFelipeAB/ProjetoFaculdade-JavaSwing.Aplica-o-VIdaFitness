@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package Business.UsuarioCrud;
-
 import Comuns.basis.EnumTreino;
 import Comuns.vos.Usuario;
 import java.util.ArrayList;
@@ -16,8 +15,10 @@ import java.util.ArrayList;
 public class AuxiliaUsuario {
     public static double UsuarioIMC()
     {
+        
         Usuario u = AcessoUsuario.getInstance().getUsuarioLogado();
-        double imc = u.getPeso()/(u.getAltura()*u.getAltura());
+        double alturaM =u.getAltura()/100.0;
+        double imc = u.getPeso()/((alturaM)*(alturaM));
         u.setImc(imc);
         return imc;
     }
@@ -97,28 +98,27 @@ public class AuxiliaUsuario {
         ArrayList<Double> dieta = new ArrayList();
 //        String uTreino = AcessoUsuario.getInstance().getLvlTreino();
         String uDieta = AcessoUsuario.getInstance().getUsuarioLogado().getMeta();
-        Double uPeso = AcessoUsuario.getInstance().getUsuarioLogado().getPeso();
-        double agua= 3500;
+        double uPeso = AcessoUsuario.getInstance().getUsuarioLogado().getPeso();        
         if(uDieta.toUpperCase().equals("PERDA DE PESO") || uDieta.toUpperCase().equals("PERDA DE GORDURA"))
         {
             dieta.add(uPeso*3);
             dieta.add(uPeso*0.7);
             dieta.add(uPeso*0.4);
-            dieta.add(agua);
+            dieta.add(3500.0);
         }
         else if(uDieta.toUpperCase().equals("EQUILIBRIO SAUDAVEL"  ))
         {
             dieta.add(uPeso*3.5);
             dieta.add(uPeso*0.75);
             dieta.add(uPeso*0.5);
-            dieta.add(agua);
+            dieta.add(3000.0);
         }
         else if(uDieta.toUpperCase().equals("GANHO DE MASSA MAGRA"))
         {
             dieta.add(uPeso*4);
             dieta.add(uPeso*1);
             dieta.add(uPeso*0.45);
-            dieta.add(agua);
+            dieta.add(3500.0);
         }
         return dieta;
     }

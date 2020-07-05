@@ -21,15 +21,15 @@ public class Usuario extends Entidade{
      private String cidade;
      private String estado;
      private int idade;
-    private double peso;
-    private double altura;
-    private double gordura;
+    private int peso;
+    private int altura;
+    private int gordura;
     
     private String meta;
     private String lvlTreino;
-    private double imc;
-    private double gorduraDesejada;
-    private double pesoDesejada;
+    private Double imc;
+    private int gorduraDesejada;
+    private int pesoDesejada;
     
     
     
@@ -79,42 +79,42 @@ public class Usuario extends Entidade{
     /**
      * @return the peso
      */
-    public double getPeso() {
+    public int getPeso() {
         return peso;
     }
 
     /**
      * @param peso the peso to set
      */
-    public void setPeso(double peso) {
+    public void setPeso(int peso) {
         this.peso = peso;
     }
 
     /**
      * @return the altura
      */
-    public double getAltura() {
+    public int getAltura() {
         return altura;
     }
 
     /**
      * @param altura the altura to set
      */
-    public void setAltura(double altura) {
+    public void setAltura(int altura) {
         this.altura = altura;
     }
 
     /**
      * @return the gordura
      */
-    public double getGordura() {
+    public int getGordura() {
         return gordura;
     }
 
     /**
      * @param gordura the gordura to set
      */
-    public void setGordura(double gordura) {
+    public void setGordura(int gordura) {
         this.gordura = gordura;
     }
 
@@ -177,28 +177,28 @@ public class Usuario extends Entidade{
     /**
      * @return the gorduraDesejada
      */
-    public double getGorduraDesejada() {
+    public int getGorduraDesejada() {
         return gorduraDesejada;
     }
 
     /**
      * @param gorduraDesejada the gorduraDesejada to set
      */
-    public void setGorduraDesejada(double gorduraDesejada) {
+    public void setGorduraDesejada(int gorduraDesejada) {
         this.gorduraDesejada = gorduraDesejada;
     }
 
     /**
      * @return the pesoDesejada
      */
-    public double getPesoDesejada() {
+    public int getPesoDesejada() {
         return pesoDesejada;
     }
 
     /**
      * @param pesoDesejada the pesoDesejada to set
      */
-    public void setPesoDesejada(double pesoDesejada) {
+    public void setPesoDesejada(int pesoDesejada) {
         this.pesoDesejada = pesoDesejada;
     }
 

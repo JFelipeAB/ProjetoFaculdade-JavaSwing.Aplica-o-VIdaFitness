@@ -40,6 +40,7 @@ public class TelaCadastrar extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         btnEntrar3 = new javax.swing.JButton();
         btnEntrar2 = new javax.swing.JButton();
+        lbCadastrar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -78,6 +79,8 @@ public class TelaCadastrar extends javax.swing.JFrame {
             }
         });
 
+        lbCadastrar.setText(".");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -87,8 +90,6 @@ public class TelaCadastrar extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(33, 33, 33)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel6)
-                            .addComponent(txtUsuario1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel7)
                             .addComponent(txtSenha1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
@@ -98,7 +99,13 @@ public class TelaCadastrar extends javax.swing.JFrame {
                                 .addGap(64, 64, 64)
                                 .addComponent(jLabel10))
                             .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnEntrar2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                            .addComponent(btnEntrar2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(jLabel6)
+                                    .addGap(44, 44, 44)
+                                    .addComponent(lbCadastrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(txtUsuario1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(83, 83, 83)
                         .addComponent(btnEntrar3, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -114,8 +121,10 @@ public class TelaCadastrar extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(lbCadastrar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtUsuario1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7)
@@ -125,7 +134,7 @@ public class TelaCadastrar extends javax.swing.JFrame {
                 .addComponent(btnEntrar3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnEntrar2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         pack();
@@ -137,19 +146,26 @@ public class TelaCadastrar extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEntrar3ActionPerformed
 
     private void btnEntrar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrar2ActionPerformed
-            Usuario u = CrudUsuario.CheckUser(txtUsuario1.getText(),txtSenha1.getText());            
-            if(u == null) 
-            {   
-                
-            }// TODO add your handling code here:
-            else
+//            Usuario u = CrudUsuario.CheckUser(txtUsuario1.getText(),txtSenha1.getText());            
+            
+//            if(u == null) 
+//            {   
+//                
+//            }// TODO add your handling code here:
+//            else
+//            {
+//                lbCadastrar.setText("Usuario Ja existe");
+//                txtUsuario1.setText("");
+//                txtSenha1.setText("");
+//            }            
+            if(txtUsuario1.toString().equals("admin"))
             {
-                txtUsuario1.setText("Usuario Ja existe");
-                txtSenha1.setText("");
+              lbCadastrar.setText("Usuario Ja existe"); 
+              txtUsuario1.setText("");
+              txtSenha1.setText("");
             }
-
-
-//        
+            else
+                lbCadastrar.setText("Usuario Cadastrado!");
 //        {
 //        txtUsuario1.setText("Usuario ja existente");
 //        txtSenha1.setText("");
@@ -199,6 +215,7 @@ public class TelaCadastrar extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel lbCadastrar;
     private javax.swing.JTextField txtSenha1;
     private javax.swing.JTextField txtUsuario1;
     // End of variables declaration//GEN-END:variables

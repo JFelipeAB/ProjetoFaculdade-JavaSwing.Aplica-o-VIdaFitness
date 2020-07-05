@@ -75,13 +75,13 @@ public class UsuarioDAO {
                 u.setCidade(rs.getString("cidade"));
                 u.setEstado(rs.getString("estado"));
                 u.setIdade(rs.getInt("idade"));
-                u.setPeso(rs.getDouble("peso"));
-                u.setAltura(rs.getDouble("altura"));
-                u.setGordura(rs.getDouble("gordura"));
-                u.setGorduraDesejada(rs.getDouble("gorduraDesejada"));
+                u.setPeso(rs.getInt("peso"));
+                u.setAltura(rs.getInt("altura"));
+                u.setGordura(rs.getInt("gordura"));
+                u.setGorduraDesejada(rs.getInt("gorduraDesejada"));
                 u.setLvlTreino(rs.getString("lvlTreino"));
                 u.setMeta(rs.getString("meta"));
-                u.setPesoDesejada(rs.getDouble("pesoDesejada"));
+                u.setPesoDesejada(rs.getInt("pesoDesejada"));
                 u.setImc(rs.getDouble("imc"));
                
             
