@@ -155,7 +155,6 @@ public class TelaMenu extends javax.swing.JFrame {
         cbMeta = new javax.swing.JComboBox<>();
         cbNvlTreino = new javax.swing.JComboBox<>();
         jLabel32 = new javax.swing.JLabel();
-        btnAjuda1 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         txtGorduraD = new javax.swing.JTextField();
@@ -737,9 +736,6 @@ public class TelaMenu extends javax.swing.JFrame {
             }
         });
 
-        btnAjuda1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Help.jpg"))); // NOI18N
-        btnAjuda1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 204, 255), 3));
-
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/meta12.png"))); // NOI18N
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/meta.png"))); // NOI18N
@@ -771,9 +767,9 @@ public class TelaMenu extends javax.swing.JFrame {
                                         .addComponent(jLabel21)
                                         .addGap(102, 102, 102)
                                         .addComponent(cbMeta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel22)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGap(18, 18, 18)
                                         .addComponent(txtIMC, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel16)
@@ -796,7 +792,6 @@ public class TelaMenu extends javax.swing.JFrame {
                                 .addComponent(jLabel20)))
                         .addGap(38, 38, 38)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnAjuda1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnAtualizarMeta, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblAMeta))))
                 .addContainerGap(59, Short.MAX_VALUE))
@@ -844,10 +839,7 @@ public class TelaMenu extends javax.swing.JFrame {
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel20)
-                                .addGap(42, 42, 42)
-                                .addComponent(btnAjuda1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel20)
                             .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(211, 211, 211))))
         );
@@ -1163,12 +1155,13 @@ public class TelaMenu extends javax.swing.JFrame {
              u.setIdade(Integer.parseInt(txtEstado2.getText()));         
              u.setPeso(Integer.parseInt(txtEstado3.getText()));
              u.setAltura(Integer.parseInt(txtEstado6.getText()));
-             u.setGordura(Integer.parseInt(txtEstado5.getText()));
-             CrudUsuario.Alterar(u);
+             u.setGordura(Integer.parseInt(txtEstado5.getText()));             
              u.setImc(AuxiliaUsuario.UsuarioIMC());
+             jLabel22.setText(AuxiliaUsuario.FidBackIMC());
              DecimalFormat df= new DecimalFormat("0.00");
              txtIMC.setText(df.format((u.getImc())));
-             lblAPerfil.setText("Atualizado !");
+             CrudUsuario.Alterar(u);
+             lblAPerfil.setText("Atualizado");
         }
         catch(Exception x)
         {
@@ -1177,7 +1170,7 @@ public class TelaMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAtualizarPerfilActionPerformed
 
     private void btnAtualizarMetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarMetaActionPerformed
-//        try{        
+        try{        
             Usuario u = AcessoUsuario.getInstance().getUsuarioLogado();
 
             u.setGorduraDesejada(Integer.parseInt(txtGorduraD.getText()));
@@ -1202,12 +1195,13 @@ public class TelaMenu extends javax.swing.JFrame {
             treino1.setText(treino.get(0));
             treino2.setText(treino.get(1));
             treino3.setText(treino.get(2));
-            lblAMeta.setText("Atualizado !");
-//        }
-//        catch(Exception x)
-//        {
-//            lblAMeta.setText("Erro !!" + x);
-//        }
+            CrudUsuario.Alterar(u);
+            lblAMeta.setText("Atualizado");
+        }
+        catch(Exception x)
+        {
+            lblAMeta.setText("Erro !!" + x);
+        }
     }//GEN-LAST:event_btnAtualizarMetaActionPerformed
 
     private void btnAtualizarDietaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarDietaActionPerformed
@@ -1216,21 +1210,21 @@ public class TelaMenu extends javax.swing.JFrame {
 
     private void JpanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JpanelMouseClicked
         Usuario u = AcessoUsuario.getInstance().getUsuarioLogado();
-        lblAPerfil.setText("Atualizar");       // TODO add your handling code here:
+        lblAPerfil.setText("Atualizar");       
         lblAMeta.setText("Atualizar");
         lblADieta.setText("Atualizar");
         txtUsuario3.setText(u.getUsuario());
-            txtSenha3.setText(u.getSenha());
-            txtNome1.setText(u.getNome());
-            txtEndereco1.setText(u.getEndereco());
-            txtCidade1.setText(u.getCidade());
-            cbEstado.setSelectedItem(u.getEstado());
-            txtEstado2.setText(String.valueOf(u.getIdade()));
-            txtEstado3.setText(String.valueOf(u.getPeso()));
-            txtEstado6.setText(String.valueOf(u.getAltura()));
-            txtEstado5.setText(String.valueOf(u.getGordura()));
-            txtGorduraD.setText(String.valueOf(u.getGorduraDesejada()));
-            txtPesoD8.setText(String.valueOf(u.getPesoDesejada()));
+        txtSenha3.setText(u.getSenha());
+        txtNome1.setText(u.getNome());
+        txtEndereco1.setText(u.getEndereco());
+        txtCidade1.setText(u.getCidade());
+        cbEstado.setSelectedItem(u.getEstado());
+        txtEstado2.setText(String.valueOf(u.getIdade()));
+        txtEstado3.setText(String.valueOf(u.getPeso()));
+        txtEstado6.setText(String.valueOf(u.getAltura()));
+        txtEstado5.setText(String.valueOf(u.getGordura()));
+        txtGorduraD.setText(String.valueOf(u.getGorduraDesejada()));
+        txtPesoD8.setText(String.valueOf(u.getPesoDesejada()));
     }//GEN-LAST:event_JpanelMouseClicked
 
     private void txtCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCActionPerformed
@@ -1288,7 +1282,6 @@ public class TelaMenu extends javax.swing.JFrame {
     private javax.swing.JTabbedPane Jpanel;
     private javax.swing.JTabbedPane abaDieta;
     private javax.swing.JTabbedPane abaDieta1;
-    private javax.swing.JButton btnAjuda1;
     private javax.swing.JButton btnAtualizar;
     private javax.swing.JButton btnAtualizar2;
     private javax.swing.JButton btnAtualizar3;

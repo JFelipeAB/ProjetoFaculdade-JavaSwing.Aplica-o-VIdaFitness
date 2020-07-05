@@ -24,7 +24,18 @@ public class AuxiliaUsuario {
         u.setImc(imc);
         return imc;
     }
-    
+    public static String FidBackIMC()
+    {
+        Usuario u = AcessoUsuario.getInstance().getUsuarioLogado();
+        if(u.getImc() < 18.5)
+                return("IMC: abaixo do peso");
+             else if(u.getImc() < 24.9 || u.getGordura()< 15 )
+                return("IMC: peso normal");
+             else if(u.getImc() < 29.9)
+                return("IMC: SobrePeso");
+             else
+                return("IMC: Obesidade");
+    }
     public static ArrayList<String> UsuarioTreino()
     {
         ArrayList<String> treino = new ArrayList();

@@ -53,6 +53,37 @@ public class UsuarioDAO {
             ConnectionFactory.closeConnection(con, stmt);
         }
     }
+    public static void Update(Usuario u){
+            Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        
+        try {
+            stmt = con.prepareStatement("UPDATE USUARIO SET usuario=?,senha=?,nome=?,endereco=?,cidade=?,estado=?,idade=?,peso=?,altura=?,gordura=?,gorduraDesejada=?,lvlTreino=?,meta=?,pesoDesejada=?,imc=?)"); 
+            stmt.setString(1, u.getUsuario());
+            stmt.setString(2, u.getSenha());
+            stmt.setString(3, u.getNome());
+            stmt.setString(4, u.getEndereco());
+            stmt.setString(5, u.getCidade());
+            stmt.setString(6, u.getEstado());
+            stmt.setInt(7, u.getIdade());
+            stmt.setDouble(8, u.getPeso());
+            stmt.setDouble(9, u.getAltura());
+            stmt.setDouble(10, u.getGordura());
+            stmt.setDouble(11, u.getGorduraDesejada());
+            stmt.setString(12, u.getLvlTreino());
+            stmt.setString(13, u.getMeta());
+            stmt.setDouble(14, u.getPesoDesejada());
+            stmt.setDouble(15, u.getImc());
+            stmt.executeUpdate();
+            
+            JOptionPane.showMessageDialog(null, "ALterado com sucesso!");
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao salvar:" + ex);
+        } finally{
+            ConnectionFactory.closeConnection(con, stmt);
+        }
+    }
     
     public static Usuario Select(String user){
         

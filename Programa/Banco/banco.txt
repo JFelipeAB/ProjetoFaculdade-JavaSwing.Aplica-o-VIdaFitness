@@ -1,0 +1,60 @@
+CREATE DATABASE NEWLIFE;
+
+
+CREATE TABLE USUARIO(
+id_usuario int identity(1,1),
+usuario varchar(50),
+senha varchar (50),
+nome varchar(100),
+endereco varchar(100),
+cidade varchar(100),
+estado varchar(50),
+idade int,
+peso int,
+altura double,
+qtd_gordura int,
+sexo varchar(2),
+primary key(id_usuario),
+
+
+CREATE TABLE METAS(
+id_meta int identity(1,1),
+id_perfil int,
+meta varchar(200),
+tipo_treino varchar(100),
+peso_meta int,
+qtd_gordura_meta int,
+imc float,
+primary key(id_meta),
+foreign key(id_perfil) references PERFIL(id_perfil));
+
+
+CREATE TABLE DIETA(
+id_dieta int identity(1,1),
+id_meta int,
+carbo int,
+proteina int,
+gordura int,
+agua int,
+primary key(id_dieta),
+foreign key(id_meta) references METAS(id_meta));
+
+
+CREATE TABLE TREINO(
+id_treino int identity(1,1),
+id_meta int,
+calorias int,
+exerc int,
+descricao varchar(300),
+primary key(id_treino),
+foreign key(id_meta) references METAS(id_meta));
+
+
+CREATE TABLE MAPA(
+id_mapa int identity(1,1),
+id_perfil int,
+endereco_academia varchar(100),
+cidade_academia varchar(100),
+estado_academia varchar(50),
+primary key(id_mapa),
+foreign key(id_perfil) references PERFIL(id_perfil));
