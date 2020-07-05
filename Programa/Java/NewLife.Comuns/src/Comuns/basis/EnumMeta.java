@@ -8,16 +8,20 @@ package Comuns.basis;
 /**
  *
  * @author joao-
+ * Equilíbrio saudável
+Ganho de massa magra
+Perda de peso
+Perda de gordura
  */
-public enum EnumAbasDisponiveis {
-    Treino("treino"),
-    Alimentacao("Alimentacao"),
-    Sobre("Sobre"),
-    Perfil("Perfil");
+public enum EnumMeta {
+    Pp("Perda de peso"),
+    Pg("Perda de gordura"),
+    Gmm("Ganho de massa magra"),
+    Es("Equilíbrio saudável");
 
     private String descricao;
 
-    EnumAbasDisponiveis(String descricao) {
+    EnumMeta(String descricao) {
         this.descricao = descricao;
     }
 

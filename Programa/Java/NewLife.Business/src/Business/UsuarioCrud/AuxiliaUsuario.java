@@ -4,9 +4,12 @@
  * and open the template in the editor.
  */
 package Business.UsuarioCrud;
+import Comuns.basis.EnumMeta;
+import Comuns.basis.EnumNvlTreino;
 import Comuns.basis.EnumTreino;
 import Comuns.vos.Usuario;
 import java.util.ArrayList;
+
 
 /**
  *
@@ -14,8 +17,7 @@ import java.util.ArrayList;
  */
 public class AuxiliaUsuario {
     public static double UsuarioIMC()
-    {
-        
+    {        
         Usuario u = AcessoUsuario.getInstance().getUsuarioLogado();
         double alturaM =u.getAltura()/100.0;
         double imc = u.getPeso()/((alturaM)*(alturaM));
@@ -28,63 +30,63 @@ public class AuxiliaUsuario {
         ArrayList<String> treino = new ArrayList();
         String uTreino = AcessoUsuario.getInstance().getUsuarioLogado().getLvlTreino();
         String uDieta = AcessoUsuario.getInstance().getUsuarioLogado().getMeta();
-        if(uTreino.toUpperCase().equals("INICIANTE"))
+        if(uTreino.equals(EnumNvlTreino.Ic.getDescricao()))
         {
-            if(uDieta.toUpperCase().equals("PERDA DE PESO") || uDieta.toUpperCase().equals("PERDA DE GORDURA"))
+            if(uDieta.equals(EnumMeta.Pp.getDescricao()) || uDieta.equals(EnumMeta.Pg.getDescricao()))
             {
                 treino.add(EnumTreino.Iniciante1.getDescricao());
                 treino.add(EnumTreino.Iniciante2.getDescricao());
                 treino.add(EnumTreino.Iniciante4.getDescricao());
             }
-            else if(uDieta.toUpperCase().equals("EQUILIBRIO SAUDAVEL") || uDieta.toUpperCase().equals("GANHO DE MASSA MAGRA"))
+            else if(uDieta.equals(EnumMeta.Es.getDescricao())|| uDieta.equals(EnumMeta.Gmm.getDescricao()))
             {
                 treino.add(EnumTreino.Iniciante2.getDescricao());
                 treino.add(EnumTreino.Iniciante3.getDescricao());
                 treino.add(EnumTreino.Iniciante4.getDescricao());
             }
         }
-        else if(uTreino.toUpperCase().equals("INTERMEDIARIO"))
+        else if(uTreino.equals(EnumNvlTreino.It.getDescricao()))
         {
-            if(uDieta.toUpperCase().equals("PERDA DE PESO") || uDieta.toUpperCase().equals("PERDA DE GORDURA"))
+            if(uDieta.equals(EnumMeta.Pp.getDescricao()) || uDieta.equals(EnumMeta.Pg.getDescricao()))
             {
                 treino.add(EnumTreino.Avançado1.getDescricao());
                 treino.add(EnumTreino.Intermediario2.getDescricao());
                 treino.add(EnumTreino.Intermediario4.getDescricao());
             }
-            else if(uDieta.toUpperCase().equals("EQUILIBRIO SAUDAVEL"  ))
+            else if(uDieta.equals(EnumMeta.Es.getDescricao()))
             {
                 treino.add(EnumTreino.Iniciante1.getDescricao());
                 treino.add(EnumTreino.Intermediario2.getDescricao());
                 treino.add(EnumTreino.Intermediario4.getDescricao());
             }
-            else if(uDieta.toUpperCase().equals("GANHO DE MASSA MAGRA"))
+            else if(uDieta.equals(EnumMeta.Gmm.getDescricao()))
                 {
                 treino.add(EnumTreino.Intermediario2.getDescricao());
                 treino.add(EnumTreino.Avançado3.getDescricao());
                 treino.add(EnumTreino.Intermediario4.getDescricao());
             }
         }
-        else if(uTreino.toUpperCase().equals("INTERMEDIARIO"))
+        else if(uTreino.equals(EnumNvlTreino.Av.getDescricao()))
         {
-            if(uDieta.toUpperCase().equals("PERDA DE PESO")  )
+            if(uDieta.equals(EnumMeta.Pp.getDescricao()))
             {
                 treino.add(EnumTreino.Avançado1.getDescricao());
                 treino.add(EnumTreino.Intermediario4.getDescricao());
                 treino.add(EnumTreino.Intermediario1.getDescricao());
             }
-            else if (uDieta.toUpperCase().equals("PERDA DE GORDURA"))
+            else if (uDieta.equals(EnumMeta.Pg.getDescricao()))
             {
                 treino.add(EnumTreino.Intermediario1.getDescricao());
                 treino.add(EnumTreino.Avançado2.getDescricao());
                 treino.add(EnumTreino.Avançado3.getDescricao());
             }
-            else if(uDieta.toUpperCase().equals("EQUILIBRIO SAUDAVEL"  ))
+            else if(uDieta.equals(EnumMeta.Es.getDescricao()))
             {
                 treino.add(EnumTreino.Intermediario1.getDescricao());
                 treino.add(EnumTreino.Avançado2.getDescricao());
                 treino.add(EnumTreino.Avançado4.getDescricao());
             }
-            else if(uDieta.toUpperCase().equals("GANHO DE MASSA MAGRA"))
+            else if(uDieta.equals(EnumMeta.Gmm.getDescricao()))
             {
                 treino.add(EnumTreino.Avançado2.getDescricao());
                 treino.add(EnumTreino.Avançado3.getDescricao());
@@ -99,21 +101,21 @@ public class AuxiliaUsuario {
 //        String uTreino = AcessoUsuario.getInstance().getLvlTreino();
         String uDieta = AcessoUsuario.getInstance().getUsuarioLogado().getMeta();
         double uPeso = AcessoUsuario.getInstance().getUsuarioLogado().getPeso();        
-        if(uDieta.toUpperCase().equals("PERDA DE PESO") || uDieta.toUpperCase().equals("PERDA DE GORDURA"))
+        if(uDieta.equals(EnumMeta.Pp.getDescricao()) || uDieta.equals(EnumMeta.Pg.getDescricao()))
         {
             dieta.add(uPeso*3);
             dieta.add(uPeso*0.7);
             dieta.add(uPeso*0.4);
             dieta.add(3500.0);
         }
-        else if(uDieta.toUpperCase().equals("EQUILIBRIO SAUDAVEL"  ))
+        else if(uDieta.equals(EnumMeta.Es.getDescricao()))
         {
             dieta.add(uPeso*3.5);
             dieta.add(uPeso*0.75);
             dieta.add(uPeso*0.5);
             dieta.add(3000.0);
         }
-        else if(uDieta.toUpperCase().equals("GANHO DE MASSA MAGRA"))
+        else if(uDieta.equals(EnumMeta.Gmm.getDescricao()))
         {
             dieta.add(uPeso*4);
             dieta.add(uPeso*1);
@@ -121,5 +123,9 @@ public class AuxiliaUsuario {
             dieta.add(3500.0);
         }
         return dieta;
+    }
+    public static String DicaDia()
+    {
+    return "Se alimente bem e tome muita agua";
     }
 }

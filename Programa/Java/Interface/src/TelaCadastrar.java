@@ -141,35 +141,33 @@ public class TelaCadastrar extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEntrar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrar3ActionPerformed
-        new TelaLogin().setVisible(true);
-        this.hide();
+        try{
+            new TelaLogin().setVisible(true);
+            this.hide();
+        }
+        catch(Exception x)
+        {
+            lbCadastrar.setText("Erro no carregamento de telas");
+        }
     }//GEN-LAST:event_btnEntrar3ActionPerformed
 
     private void btnEntrar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrar2ActionPerformed
-//            Usuario u = CrudUsuario.CheckUser(txtUsuario1.getText(),txtSenha1.getText());            
-            
-//            if(u == null) 
-//            {   
-//                
-//            }// TODO add your handling code here:
-//            else
-//            {
-//                lbCadastrar.setText("Usuario Ja existe");
-//                txtUsuario1.setText("");
-//                txtSenha1.setText("");
-//            }            
-            if(txtUsuario1.toString().equals("admin"))
-            {
-              lbCadastrar.setText("Usuario Ja existe"); 
-              txtUsuario1.setText("");
-              txtSenha1.setText("");
-            }
+        try{         
+            if(CrudUsuario.CheckUser(txtUsuario1.getText(),txtSenha1.getText()) == null) // se o usuario ja existir
+            {   
+                CrudUsuario.NewUser(txtUsuario1.getText(),txtSenha1.getText());
+            }// TODO add your handling code here:
             else
-                lbCadastrar.setText("Usuario Cadastrado!");
-//        {
-//        txtUsuario1.setText("Usuario ja existente");
-//        txtSenha1.setText("");
-//        }// TODO add your handling code here:
+            {
+                lbCadastrar.setText("Usuario Ja existente");
+                txtUsuario1.setText("");
+                txtSenha1.setText("");
+            }            
+        }
+        catch(Exception x)
+        {
+            lbCadastrar.setText("Erro no banco de dados");
+        }
     }//GEN-LAST:event_btnEntrar2ActionPerformed
 
     /**

@@ -9,14 +9,14 @@ package Comuns.basis;
  *
  * @author joao-
  */
-public enum EnumMetas {
-    Iniciante("treino"),
-    Intermediario("Alimentacao"),
-    Avançado("Sobre");
+public enum EnumNvlTreino {
+    Ic("Iniciante"),
+    It("Intermediário"),
+    Av("Avançado");
 
     private String descricao;
 
-    EnumMetas(String descricao) {
+    EnumNvlTreino(String descricao) {
         this.descricao = descricao;
     }
 

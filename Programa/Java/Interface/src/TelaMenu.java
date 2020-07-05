@@ -23,20 +23,26 @@ public class TelaMenu extends javax.swing.JFrame {
      */
     public TelaMenu() {
         initComponents();        
-         Usuario u = AcessoUsuario.getInstance().getUsuarioLogado();        
-         txtUsuario3.setText(u.getUsuario());
-         txtSenha3.setText("********");
-         txtNome1.setText(u.getNome());
-         txtEndereco1.setText(u.getEndereco());
-         txtCidade1.setText(u.getCidade());
-         cbEstado.setSelectedItem("SP");
-         txtEstado2.setText(String.valueOf(u.getIdade()));
-         txtEstado3.setText(String.valueOf(u.getPeso()));
-         txtEstado6.setText(String.valueOf(u.getAltura()));
-         txtEstado5.setText(String.valueOf(u.getGordura()));
-         txtGorduraD.setText(String.valueOf(u.getGorduraDesejada()));
-         txtPesoD8.setText(String.valueOf(u.getPesoDesejada()));
-         
+         try{
+            Usuario u = AcessoUsuario.getInstance().getUsuarioLogado();        
+            txtUsuario3.setText(u.getUsuario());
+            txtSenha3.setText(u.getSenha());
+            txtNome1.setText(u.getNome());
+            txtEndereco1.setText(u.getEndereco());
+            txtCidade1.setText(u.getCidade());
+            cbEstado.setSelectedItem("SP");
+            txtEstado2.setText(String.valueOf(u.getIdade()));
+            txtEstado3.setText(String.valueOf(u.getPeso()));
+            txtEstado6.setText(String.valueOf(u.getAltura()));
+            txtEstado5.setText(String.valueOf(u.getGordura()));
+            txtGorduraD.setText(String.valueOf(u.getGorduraDesejada()));
+            txtPesoD8.setText(String.valueOf(u.getPesoDesejada()));
+            txtDicadodia2.setText(AuxiliaUsuario.DicaDia());
+        }
+        catch(Exception x)
+        {
+            lblAPerfil.setText("Erro !!" + x);
+        }
     }
 
     /**
@@ -163,16 +169,16 @@ public class TelaMenu extends javax.swing.JFrame {
         jLabel44 = new javax.swing.JLabel();
         jLabel45 = new javax.swing.JLabel();
         btnAtualizarDieta = new javax.swing.JButton();
-        NUDG = new javax.swing.JSpinner();
-        NUDA = new javax.swing.JSpinner();
         jLabel47 = new javax.swing.JLabel();
         txtDicadodia2 = new javax.swing.JTextField();
-        NUDC = new javax.swing.JSpinner();
-        NUDP = new javax.swing.JSpinner();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         lblADieta = new javax.swing.JLabel();
+        txtC = new javax.swing.JTextField();
+        txtP = new javax.swing.JTextField();
+        txtG = new javax.swing.JTextField();
+        txtA = new javax.swing.JTextField();
         jPanel8 = new javax.swing.JPanel();
         treino1 = new javax.swing.JLabel();
         foto2 = new javax.swing.JLabel();
@@ -614,7 +620,7 @@ public class TelaMenu extends javax.swing.JFrame {
                         .addComponent(jLabel71)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel83)))
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -674,7 +680,7 @@ public class TelaMenu extends javax.swing.JFrame {
                         .addComponent(lblAPerfil)
                         .addGap(18, 18, 18)
                         .addComponent(btnAtualizarPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel46)
                     .addComponent(jLabel48)
@@ -713,7 +719,6 @@ public class TelaMenu extends javax.swing.JFrame {
         jLabel23.setText("Nível de treino");
 
         txtIMC.setEditable(false);
-        txtIMC.setEnabled(false);
 
         cbMeta.setFont(new java.awt.Font("Leelawadee", 0, 14)); // NOI18N
         cbMeta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Equilíbrio saudável", "Ganho de massa magra", "Perda de peso", "Perda de gordura" }));
@@ -794,7 +799,7 @@ public class TelaMenu extends javax.swing.JFrame {
                             .addComponent(btnAjuda1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnAtualizarMeta, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblAMeta))))
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -874,18 +879,10 @@ public class TelaMenu extends javax.swing.JFrame {
             }
         });
 
-        NUDG.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-
-        NUDA.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-
         jLabel47.setFont(new java.awt.Font("Leelawadee", 1, 24)); // NOI18N
         jLabel47.setText("Dica do dia");
 
-        txtDicadodia2.setEnabled(false);
-
-        NUDC.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-
-        NUDP.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        txtDicadodia2.setEditable(false);
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/dieta2.jpg"))); // NOI18N
 
@@ -896,6 +893,34 @@ public class TelaMenu extends javax.swing.JFrame {
         lblADieta.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblADieta.setText("Atualizar");
 
+        txtC.setEditable(false);
+        txtC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCActionPerformed(evt);
+            }
+        });
+
+        txtP.setEditable(false);
+        txtP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPActionPerformed(evt);
+            }
+        });
+
+        txtG.setEditable(false);
+        txtG.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtGActionPerformed(evt);
+            }
+        });
+
+        txtA.setEditable(false);
+        txtA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
@@ -905,25 +930,27 @@ public class TelaMenu extends javax.swing.JFrame {
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel42)
-                        .addGap(0, 0, 0)
-                        .addComponent(NUDC, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel44)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(NUDP, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel45)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(NUDG, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel43)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(NUDA, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGap(303, 303, 303)
-                        .addComponent(jLabel41)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel6))
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addGap(150, 150, 150)
+                                .addComponent(jLabel41)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel6))
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtC, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(8, 8, 8)
+                                .addComponent(jLabel44)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtP, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(12, 12, 12)
+                                .addComponent(jLabel45)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtG, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(12, 12, 12)
+                                .addComponent(jLabel43)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtA, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGap(30, 30, 30)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -954,14 +981,14 @@ public class TelaMenu extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel42)
-                    .addComponent(NUDC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel44)
-                    .addComponent(NUDP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel45)
-                    .addComponent(NUDG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(NUDA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel43))
-                .addGap(44, 44, 44)
+                    .addComponent(jLabel43)
+                    .addComponent(txtC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(45, 45, 45)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel7Layout.createSequentialGroup()
@@ -973,7 +1000,7 @@ public class TelaMenu extends javax.swing.JFrame {
                             .addComponent(btnAtualizarDieta, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(8, 8, 8)))
                     .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
                 .addComponent(jLabel47)
                 .addGap(18, 18, 18)
                 .addComponent(txtDicadodia2, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -986,6 +1013,7 @@ public class TelaMenu extends javax.swing.JFrame {
         treino1.setText("Treino 1");
 
         foto2.setFont(new java.awt.Font("Leelawadee UI", 0, 20)); // NOI18N
+        foto2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/abdominal.png"))); // NOI18N
         foto2.setText("Foto 2");
 
         treino2.setFont(new java.awt.Font("Leelawadee UI", 0, 20)); // NOI18N
@@ -999,9 +1027,11 @@ public class TelaMenu extends javax.swing.JFrame {
         jLabel50.setText("Treino");
 
         foto1.setFont(new java.awt.Font("Leelawadee UI", 0, 20)); // NOI18N
+        foto1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/corda naval.png"))); // NOI18N
         foto1.setText("Foto 1");
 
         foto3.setFont(new java.awt.Font("Leelawadee UI", 0, 20)); // NOI18N
+        foto3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/flexão.png"))); // NOI18N
         foto3.setText("Foto 3");
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/treino.png"))); // NOI18N
@@ -1011,24 +1041,21 @@ public class TelaMenu extends javax.swing.JFrame {
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                .addContainerGap(73, Short.MAX_VALUE)
+                .addGap(56, 56, 56)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(treino1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(foto3, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(foto2, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(foto1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(70, 70, 70)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(treino1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(treino2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 296, Short.MAX_VALUE)
                         .addComponent(jLabel50)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel3))
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(foto2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(treino2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(74, 74, 74)
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(foto3, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(treino3, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(treino3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(71, 71, 71))
         );
         jPanel8Layout.setVerticalGroup(
@@ -1040,15 +1067,17 @@ public class TelaMenu extends javax.swing.JFrame {
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(foto1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(foto1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(treino1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(foto2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(treino2, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(foto3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(foto2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(77, 77, 77)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(treino1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(treino3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(treino2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(110, Short.MAX_VALUE))
+                    .addComponent(treino3, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         Jpanel.addTab("Treino", jPanel8);
@@ -1066,7 +1095,7 @@ public class TelaMenu extends javax.swing.JFrame {
         jPanel10Layout.setHorizontalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
-                .addContainerGap(208, Short.MAX_VALUE)
+                .addContainerGap(214, Short.MAX_VALUE)
                 .addComponent(jLabel62)
                 .addGap(10, 10, 10)
                 .addComponent(jLabel1)
@@ -1128,8 +1157,9 @@ public class TelaMenu extends javax.swing.JFrame {
             Usuario u = AcessoUsuario.getInstance().getUsuarioLogado();// TODO add your handling code here:()
              u.setNome(txtNome1.getText());
              u.setSenha(txtSenha3.getText());
-             u.setEndereco(txtEndereco.getText());
-             u.setEstado(cbEstado.toString()); 
+             u.setCidade(txtCidade1.getText());
+             u.setEndereco(txtEndereco1.getText());
+             u.setEstado(cbEstado.getSelectedItem().toString()); 
              u.setIdade(Integer.parseInt(txtEstado2.getText()));         
              u.setPeso(Integer.parseInt(txtEstado3.getText()));
              u.setAltura(Integer.parseInt(txtEstado6.getText()));
@@ -1139,7 +1169,7 @@ public class TelaMenu extends javax.swing.JFrame {
              DecimalFormat df= new DecimalFormat("0.00");
              txtIMC.setText(df.format((u.getImc())));
              lblAPerfil.setText("Atualizado !");
-         }
+        }
         catch(Exception x)
         {
             lblAPerfil.setText("Erro !!" + x);
@@ -1147,27 +1177,37 @@ public class TelaMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAtualizarPerfilActionPerformed
 
     private void btnAtualizarMetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarMetaActionPerformed
-        Usuario u = AcessoUsuario.getInstance().getUsuarioLogado();
-        
-        u.setGorduraDesejada(Integer.parseInt(txtGorduraD.getText()));
-        u.setPesoDesejada(Integer.parseInt(txtPesoD8.getText()));
-        u.setMeta(cbMeta.toString());
-        u.setLvlTreino(cbNvlTreino.toString());
-        u.setImc(AuxiliaUsuario.UsuarioIMC());
-        DecimalFormat df= new DecimalFormat("0.00");
-        txtIMC.setText(df.format((u.getImc())));
-        
-        ArrayList<String> treino = new ArrayList();
-        treino = AuxiliaUsuario.UsuarioTreino();
-        lblAMeta.setText("Atualizado !");
-        
-        ArrayList<Double> dieta = new ArrayList();
-        dieta = AuxiliaUsuario.UsuarioDieta();
-        df= new DecimalFormat("0");
-        NUDC.setValue(Integer.parseInt(df.format((dieta.remove(0)))));
-        NUDP.setValue(Integer.parseInt(df.format((dieta.remove(0)))));
-        NUDG.setValue(Integer.parseInt(df.format((dieta.remove(0)))));
-        NUDA.setValue(Integer.parseInt(df.format((dieta.remove(0)))));
+//        try{        
+            Usuario u = AcessoUsuario.getInstance().getUsuarioLogado();
+
+            u.setGorduraDesejada(Integer.parseInt(txtGorduraD.getText()));
+            u.setPesoDesejada(Integer.parseInt(txtPesoD8.getText()));
+            u.setMeta(cbMeta.getSelectedItem().toString());
+            u.setLvlTreino(cbNvlTreino.getSelectedItem().toString());
+            u.setImc(AuxiliaUsuario.UsuarioIMC());
+            DecimalFormat df= new DecimalFormat("0.00");
+            txtIMC.setText(df.format((u.getImc())));
+
+            
+            ArrayList<Double> dieta = new ArrayList();
+            dieta = AuxiliaUsuario.UsuarioDieta();
+            df= new DecimalFormat("0");
+            txtC.setText(df.format((dieta.get(0))));
+            txtP.setText(df.format((dieta.get(1))));
+            txtG.setText(df.format((dieta.get(2))));
+            txtA.setText(df.format((dieta.get(3))));
+            
+            ArrayList<String> treino = new ArrayList();
+            treino = AuxiliaUsuario.UsuarioTreino();
+            treino1.setText(treino.get(0));
+            treino2.setText(treino.get(1));
+            treino3.setText(treino.get(2));
+            lblAMeta.setText("Atualizado !");
+//        }
+//        catch(Exception x)
+//        {
+//            lblAMeta.setText("Erro !!" + x);
+//        }
     }//GEN-LAST:event_btnAtualizarMetaActionPerformed
 
     private void btnAtualizarDietaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarDietaActionPerformed
@@ -1175,10 +1215,39 @@ public class TelaMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAtualizarDietaActionPerformed
 
     private void JpanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JpanelMouseClicked
+        Usuario u = AcessoUsuario.getInstance().getUsuarioLogado();
         lblAPerfil.setText("Atualizar");       // TODO add your handling code here:
         lblAMeta.setText("Atualizar");
         lblADieta.setText("Atualizar");
+        txtUsuario3.setText(u.getUsuario());
+            txtSenha3.setText(u.getSenha());
+            txtNome1.setText(u.getNome());
+            txtEndereco1.setText(u.getEndereco());
+            txtCidade1.setText(u.getCidade());
+            cbEstado.setSelectedItem(u.getEstado());
+            txtEstado2.setText(String.valueOf(u.getIdade()));
+            txtEstado3.setText(String.valueOf(u.getPeso()));
+            txtEstado6.setText(String.valueOf(u.getAltura()));
+            txtEstado5.setText(String.valueOf(u.getGordura()));
+            txtGorduraD.setText(String.valueOf(u.getGorduraDesejada()));
+            txtPesoD8.setText(String.valueOf(u.getPesoDesejada()));
     }//GEN-LAST:event_JpanelMouseClicked
+
+    private void txtCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCActionPerformed
+
+    private void txtPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPActionPerformed
+
+    private void txtGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtGActionPerformed
+
+    private void txtAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1217,10 +1286,6 @@ public class TelaMenu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane Jpanel;
-    private javax.swing.JSpinner NUDA;
-    private javax.swing.JSpinner NUDC;
-    private javax.swing.JSpinner NUDG;
-    private javax.swing.JSpinner NUDP;
     private javax.swing.JTabbedPane abaDieta;
     private javax.swing.JTabbedPane abaDieta1;
     private javax.swing.JButton btnAjuda1;
@@ -1333,6 +1398,8 @@ public class TelaMenu extends javax.swing.JFrame {
     private javax.swing.JLabel treino1;
     private javax.swing.JLabel treino2;
     private javax.swing.JLabel treino3;
+    private javax.swing.JTextField txtA;
+    private javax.swing.JTextField txtC;
     private javax.swing.JTextField txtCidade;
     private javax.swing.JTextField txtCidade1;
     private javax.swing.JTextField txtDicadodia;
@@ -1345,10 +1412,12 @@ public class TelaMenu extends javax.swing.JFrame {
     private javax.swing.JTextField txtEstado3;
     private javax.swing.JTextField txtEstado5;
     private javax.swing.JTextField txtEstado6;
+    private javax.swing.JTextField txtG;
     private javax.swing.JTextField txtGorduraD;
     private javax.swing.JTextField txtIMC;
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtNome1;
+    private javax.swing.JTextField txtP;
     private javax.swing.JTextField txtPesoD8;
     private javax.swing.JTextField txtSenha2;
     private javax.swing.JTextField txtSenha3;

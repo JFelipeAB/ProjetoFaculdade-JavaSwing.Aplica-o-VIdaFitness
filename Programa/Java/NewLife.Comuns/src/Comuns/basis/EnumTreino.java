@@ -10,18 +10,18 @@ package Comuns.basis;
  * @author joao-
  */
 public enum EnumTreino {
-    Iniciante1("Caminhada 20 minutos"),
-    Iniciante2("Flexão de joelehos 3x15"),
-    Iniciante3("Agachamento 3 x 15"),
-    Iniciante4("abdominal 3 x 15"),
-    Intermediario1("Caminhada 40 minutos"),
-    Intermediario2("Flexão 4x10"),
-    Intermediario3("Agachamento 5 x 15"),
-    Intermediario4("abdominal 5 x 15"),
-    Avançado1("Corrida 15 minutos"),
-    Avançado2("Flexão 5x20"),
-    Avançado3("Agachamento 5 x 30"),
-    Avançado4("abdominal 5 x 20");
+    Iniciante1("Caminhada\n 20 minutos"),
+    Iniciante2("Flexão de joelehos\n 3x15"),
+    Iniciante3("Agachamento\n 3 x 15"),
+    Iniciante4("abdominal\n 3 x 15"),
+    Intermediario1("Caminhada\n 40 minutos"),
+    Intermediario2("Flexão\n 4x10"),
+    Intermediario3("Agachamento\n 5 x 15"),
+    Intermediario4("abdominal\n 5 x 15"),
+    Avançado1("Corrida\n 15 minutos"),
+    Avançado2("Flexão\n 5x20"),
+    Avançado3("Agachamento\n 5 x 30"),
+    Avançado4("abdominal\n 5 x 20");
     private String descricao;
 
     EnumTreino(String descricao) {

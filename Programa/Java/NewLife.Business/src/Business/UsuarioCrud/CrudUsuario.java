@@ -12,7 +12,7 @@ import Comuns.vos.Usuario;
  */
 public class CrudUsuario {
     
-    public static void NewkUser(String user, String password)
+    public static void NewUser(String user, String password)
     {
     Usuario uNovo = new Usuario();
     uNovo.setAltura(0);
@@ -40,10 +40,11 @@ public class CrudUsuario {
 //            if(uCheck.getUsuario().equals(user) & uCheck.getSenha().equals(password))
 //                return uCheck;
 //        }
-//        return null;//        
+//        return null;        
         
-        Usuario u = new Usuario();//quebra galho
-        u.setUsuario(user);//quebra galho 
+        Usuario u = new Usuario();//quebra galho sem banco
+        u.setUsuario(user);//quebra galho
+        u.setSenha(password);
             if(!u.getUsuario().equals("admin"))//quebra galho 
                 return null;//quebra galho
         return u;//quebra galho        
@@ -51,7 +52,8 @@ public class CrudUsuario {
     public static Usuario CheckUser(String user)
     {    
         Usuario uCheck = UsuarioDAO.Select(user);
-        return uCheck;         
+        return uCheck;    
+        
     }
     public static void Alterar (Usuario u)
     {

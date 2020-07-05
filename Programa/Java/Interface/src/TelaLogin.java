@@ -166,25 +166,36 @@ public class TelaLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEntrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrar1ActionPerformed
-        new TelaCadastrar().setVisible(true);
-        this.hide();// TODO add your handling code here:
+        try{
+            new TelaCadastrar().setVisible(true);
+            this.hide();// TODO add your handling code here:
+        }
+        catch(Exception x)
+        {
+            lblLogar.setText("Erro no carregamento de telas");
+        }
     }//GEN-LAST:event_btnEntrar1ActionPerformed
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-        
-            Usuario u = CrudUsuario.CheckUser(txtUsuario.getText(),txtSenha.getText());            
+        try{
+            Usuario u = CrudUsuario.CheckUser(txtUsuario.getText(),txtSenha.getText());//Checa o usuario            
             if(u != null) 
             {                
                 AcessoUsuario.getInstance().setUsuarioLogado(u);
                 new TelaMenu().setVisible(true);
                 this.hide();
-            }// TODO add your handling code here:
+            }
             else
             {
                 lblLogar.setText("Usuario ou Senha incorretos");
                 txtUsuario.setText("");
                 txtSenha.setText("");
             }
+            }
+        catch(Exception x)
+        {
+            lblLogar.setText("Erro no banco de dados");
+        }
         
     }//GEN-LAST:event_btnEntrarActionPerformed
 
