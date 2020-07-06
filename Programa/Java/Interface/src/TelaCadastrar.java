@@ -152,7 +152,7 @@ public class TelaCadastrar extends javax.swing.JFrame {
 
     private void btnEntrar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrar2ActionPerformed
         try{         
-            if(CrudUsuario.CheckUser(txtUsuario1.getText(),txtSenha1.getText()) == null) // se o usuario ja existir
+            if(CrudUsuario.CheckUser(txtUsuario1.getText(),txtSenha1.getText()) == null) // se o usuario não existir
             {   
                 CrudUsuario.NewUser(txtUsuario1.getText(),txtSenha1.getText());
             }// TODO add your handling code here:

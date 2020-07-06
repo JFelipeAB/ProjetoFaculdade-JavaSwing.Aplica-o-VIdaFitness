@@ -16,6 +16,9 @@ Manual de instalação ou Projeto de Setup.
 
 OBS: caminho para acessar rapidamente o arquivo C:\Users\usuario\Downloads\Projeto NewLife\ProjetoFit\Programa\Java\Interface\dist
 
+OBS: em casos de problema com o banco de dado, na pasta Java tem uma solução que roda sem repositorio para testes.
+com usuario padrão admin senha admin.
+ 
 Matheus Rodrigues Butinhão - RA: 081180041 
 
 Ighor Ibraim Scavone - RA: 082170011

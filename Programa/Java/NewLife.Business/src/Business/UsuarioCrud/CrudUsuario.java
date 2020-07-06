@@ -30,25 +30,25 @@ public class CrudUsuario {
     uNovo.setPesoDesejada(0);
     uNovo.setSenha(password);
     uNovo.setUsuario(user);
-//    UsuarioDAO.Insert(uNovo);   // com banco
+    UsuarioDAO.Insert(uNovo);   // com banco
     }
     
     public static Usuario CheckUser(String user, String password)
     {    
-//        Usuario uCheck = UsuarioDAO.Select(user);     //com banco
-//        if(uCheck != null)
-//        {
-//            if(uCheck.getUsuario().equals(user) & uCheck.getSenha().equals(password))
-//                return uCheck;
-//        }
-//        return null;        
+        Usuario uCheck = UsuarioDAO.Select(user);     //com banco
+        if(uCheck != null)
+        {
+            if(uCheck.getUsuario().equals(user) & uCheck.getSenha().equals(password))
+                return uCheck;
+        }
+        return null;        
         
-        Usuario u = new Usuario();//quebra galho sem banco
-        u.setUsuario(user);//quebra galho sem banco
-        u.setSenha(password);
-            if(!u.getUsuario().equals("admin"))//quebra galho sem banco
-                return null;//quebra galho sem banco
-        return u;//quebra galho sem banco       
+//        Usuario u = new Usuario();//quebra galho sem banco
+//        u.setUsuario(user);//quebra galho sem banco
+//        u.setSenha(password);
+//            if(!u.getUsuario().equals("admin"))//quebra galho sem banco
+//                return null;//quebra galho sem banco
+//        return u;//quebra galho sem banco       
     }
     public static Usuario CheckUser(String user)
     {    
@@ -57,6 +57,6 @@ public class CrudUsuario {
     }
     public static void Alterar (Usuario u)
     {
-//        UsuarioDAO.Update(u);
+        UsuarioDAO.Update(u);
     }
 }
